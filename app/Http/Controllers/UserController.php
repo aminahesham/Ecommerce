@@ -27,4 +27,14 @@ class UserController extends Controller
             return redirect('/home');
         }
     }
+
+    public function register(Request $req){
+
+             User::create([
+            'name'     => $req -> name,
+            'email'    => $req -> email,
+            'password' => $req -> password,
+             ]);
+            return redirect('login');
+              }
 }

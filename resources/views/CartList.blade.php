@@ -25,9 +25,9 @@
 </div>
 </div>
 
-  
+
   <div class="col-sm-3">
-  <a href="cartdelete/{{$item->cart_id}}"  class="btn btn-warning">Delete</a>
+  <a href= "cartdelete/{{$item->cart_id}}" class="btn btn-warning">Delete</a>
   </div>
   
   </div>

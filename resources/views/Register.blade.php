@@ -82,16 +82,7 @@
                 <strong>{{ $errors->first('email') }}</strong>
             </span>
             @endif
-        </div>
-        <div class="form-group">
-            <input type="password" class="form-control" name="password" placeholder="Password" required="required">
-            @if ($errors->has('password'))
-            <span class="help-block font-red-mint">
-                <strong>{{ $errors->first('password') }}</strong>
-            </span>
-            @endif
-          <br>
-        </div>
+      <br><br>
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Submit</button>
         </div>  

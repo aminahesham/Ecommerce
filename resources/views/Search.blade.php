@@ -8,7 +8,7 @@
 <div class="col-sm-4">
 <div class="trending-wrapper">
 <h3>Search Result</h3>
-  @foreach($product as $item)
+  @foreach($products as $item)
   <div class="searched-item">
   <a href="details/{{$item['id']}}">
 

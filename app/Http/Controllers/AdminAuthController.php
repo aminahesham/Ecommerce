@@ -6,7 +6,6 @@ use Validator;
 use Session;
 use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
-use Illuminate\Foundation\Auth\AuthenticatesUsers;
 use Illuminate\Http\Request;
 use App\Models\Admin;
 
@@ -62,11 +61,11 @@ class AdminAuthController extends Controller
         {
             $user = auth()->guard('admin')->user();
             
-            \Session::put('success','You are Login successfully!!');
-            return redirect()->route('admin/dashboard');
+           // Session::put('loggedin');
+            return view('AdminDashboard');
             
         } else {
-            return back()->with('error','your username and password are wrong.');
+            return back();
         }
 
     }
@@ -79,8 +78,8 @@ class AdminAuthController extends Controller
     public function logout()
     {
         auth()->guard('admin')->logout();
-        \Session::flush();
-        \Sessioin::put('success','You are logout successfully');        
+        Session::flush();
+        Sessioin::put('loggedout');        
         return redirect(route('adminLogin'));
     }
 }
