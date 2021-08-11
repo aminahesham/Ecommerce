@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Models\Product;
 
 class AdminController extends Controller
 {
@@ -15,5 +16,10 @@ class AdminController extends Controller
     public function dashboard()
     {
         return view('AdminDashboard');
+    }
+
+    public function showproducts(){
+        $products=Product::all();
+        return view('AdminShowProducts',compact('products'));
     }
 }

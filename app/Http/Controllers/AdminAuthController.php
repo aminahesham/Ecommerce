@@ -8,6 +8,9 @@ use App\Http\Controllers\Controller;
 use App\Providers\RouteServiceProvider;
 use Illuminate\Http\Request;
 use App\Models\Admin;
+use Auth;
+use Hash;
+
 
 class AdminAuthController extends Controller
 {
@@ -21,15 +24,13 @@ class AdminAuthController extends Controller
     | to conveniently provide its functionality to your applications.
     |
     */
-
-  //  use AuthenticatesUsers;
-
+   // protected $redirectTo = 'adminLoginPost';
     /**
      * Where to redirect users after login.
      *
      * @var string
      */
-    protected $redirectTo = '/admin/login';
+    protected $redirectTo = 'admin/login';
 
     /**
      * Create a new controller instance.
@@ -38,12 +39,12 @@ class AdminAuthController extends Controller
      */
     public function __construct()
     {
-        $this->middleware('guest', ['except' => 'logout']);
+        $this->middleware('admin', ['except' => 'logout']);
     }
 
     public function getLogin()
     {
-        return view('AdminLogin');
+        return response()->view('AdminLogin');
     }
 
     /**
@@ -51,22 +52,20 @@ class AdminAuthController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function postLogin(Request $request)
+    public function postLogin(Request $req)
     {
-        $this->validate($request, [
+        $this->validate($req, [
             'email' => 'required|email',
             'password' => 'required',
         ]);
-        if (auth()->guard('admin')->attempt(['email' => $request->input('email'), 'password' => $request->input('password')]))
-        {
-            $user = auth()->guard('admin')->user();
-            
-           // Session::put('loggedin');
-            return view('AdminDashboard');
-            
-        } else {
-            return back();
+        $admin=Admin::where(['email'=> $req -> email])-> first();
+        if(! $admin ||Hash::check($req->password,$admin->password)){
+            return 'User Name or Password incorrect';
+        }else{
+            $req -> Session() -> put('admin', $admin);
+            return response()->view('admindashboard');
         }
+        return $next($req);
 
     }
 
@@ -77,9 +76,8 @@ class AdminAuthController extends Controller
      */
     public function logout()
     {
-        auth()->guard('admin')->logout();
-        Session::flush();
-        Sessioin::put('loggedout');        
-        return redirect(route('adminLogin'));
+      auth()->guard('admin')->logout();
+      Session :: forget('admins');
+      return redirect('admin/login');
     }
 }

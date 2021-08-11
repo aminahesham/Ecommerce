@@ -19,7 +19,7 @@
     </div>
     <ul class="nav navbar-nav">
       <li><a href="#">Users Table</a></li>
-      <li><a href="">Orders Table</a></li>
+      <li><a href="#">Orders Table</a></li>
       <li><a href="{{url('admin/showproducts')}}">Products Table</a></li>
       <li><a href="{{url('admin/logout')}}" style="color:red;">Logout</a></li>
 

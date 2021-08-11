@@ -36,7 +36,7 @@
 </head>
 <body>
 <div class="login-form">
-    <form action="{{ route('adminLoginPost') }}" method="post">
+    <form action="{{url('admin/login') }}" method="post">
     	{!! csrf_field() !!}
         <h2 class="text-center">Admin Log in</h2>
         @if(Session::get('success'))

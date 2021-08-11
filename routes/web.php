@@ -27,9 +27,9 @@ Route::post('admin/login' ,[AdminAuthController::class,'postLogin'])->name('admi
 
 Route::get('admin/logout' ,[AdminAuthController::class,'logout'])->name('adminLogout');
 
-Route::group(['prefix' => 'admin','middleware' => 'adminauth'], function () {
+Route::group(['prefix' => 'admin','middleware' => 'admin'], function () {
 	// Admin Dashboard
-Route::get('dashboard'    ,[App\Http\Controllers\AdminController::class,'dashboard'])->name('dashboard');	
+Route::get('dashboard'    ,[App\Http\Controllers\AdminController::class,'dashboard'])->name('admindashboard');	
 
 /////////////////////////////////////////dashboard operations//////////////////////////////////////////////////
 
