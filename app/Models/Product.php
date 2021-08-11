@@ -10,4 +10,19 @@ class Product extends Model
     use HasFactory;
 
     protected $table='products';
+    protected $fillable = [
+        'name',
+        'price',
+        'category',
+        'description',
+        'gallery',
+       
+    ];
+
+    /**
+     * The attributes that should be hidden for arrays.
+     *
+     * @var array
+     */
+   
 }

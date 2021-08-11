@@ -75,8 +75,8 @@ a.button{
   <div class="container-fluid">
     
     <ul class="nav navbar-nav">
-      <li><a href="#">Users Table</a></li>
-      <li><a href="">Orders Table</a></li>
+      <li><a href="{{url('admin/showusers')}}">Users Table</a></li>
+      <li><a href="{{url('admin/showorders')}}">Orders Table</a></li>
       <li><a href="{{url('admin/showproducts')}}">Products Table</a></li>
       <li><a href="{{url('admin/dashboard')}}">Dashboard</a></li>
       <li><a href="{{url('admin/logout')}}"   style="color:orange; float:left;">Logout</a></li>

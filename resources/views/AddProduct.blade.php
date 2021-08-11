@@ -7,10 +7,12 @@ To change this template file, choose Tools | Templates
 and open the template in the editor.
 -->
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <title>E-comm</title>
-    </head>
+<head>
+  <title>E-comm</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+</head>
     <body>
 
         <style>
@@ -57,7 +59,7 @@ ul {
   margin: 0;
   padding: 0;
   overflow: hidden;
-  background-color: #333;
+  background-color:  grey;
 }
 li {
   float: left;
@@ -102,8 +104,8 @@ input[type="text"]{
   <div class="container-fluid">
     
     <ul class="nav navbar-nav">
-      <li><a href="#">Users Table</a></li>
-      <li><a href="">Orders Table</a></li>
+      <li><a href="{{url('admin/showusers')}}">Users Table</a></li>
+      <li><a href="{{url('admin/showorders')}}">Orders Table</a></li>
       <li><a href="{{url('admin/showproducts')}}">Products Table</a></li>
       <li><a href="{{url('admin/dashboard')}}">Dashboard</a></li>
       <li><a href="{{url('admin/logout')}}"   style="color:orange; float:left;">Logout</a></li>
@@ -122,26 +124,26 @@ input[type="text"]{
 
 <div class="form-group">
   <label for="name_ar" style="color:black" ><b>Product Name</b></label><br>
-  <input type="text" class="col-sm-2 col-form-label text-danger"  name="name" value="name" maxlength="50" size="30" placeholder="Name"><br>
+  <input type="text" class="col-sm-2 col-form-label text-danger"  name="name" value="" maxlength="50" size="30" placeholder="Name"><br>
 </div>      
 
 
 
 <div class="form-group">
   <label for="price" style="color:black"><b>Product Price</b></label><br>
-  <input type="text" id="price" name="price" value="price" maxlength="50" size="30" placeholder="Price"><br>
+  <input type="text" id="price" name="price" value="" maxlength="50" size="30" placeholder="Price"><br>
 </div>
 
 
 <div class="form-group">
   <label for="details_ar" style="color:black"><b>Category</b></label><br>
-  <input type="text" id="category" name="category" value="category" maxlength="50" size="30" placeholder="Category"><br>
+  <input type="text" id="category" name="category" value="" maxlength="50" size="30" placeholder="Category"><br>
 </div>
 
 
 <div class="form-group">
   <label for="details_en" style="color:black"><b>Description</b></label><br>
-  <input type="text" id="description" name="description" value="description" maxlength="50" size="30" placeholder="Description"><br>
+  <input type="text" id="description" name="description" value="" maxlength="50" size="30" placeholder="Description"><br>
 </div>
 
 

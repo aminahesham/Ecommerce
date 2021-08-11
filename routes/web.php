@@ -35,6 +35,10 @@ Route::get('dashboard'    ,[App\Http\Controllers\AdminController::class,'dashboa
 
 Route::get('showproducts'      , [AdminController::class,'showproducts'])->name('adminshowproducts');
 
+Route::get('showusers'         , [AdminController::class,'showusers'])->name('adminshowusers');
+
+Route::get('showorders'         , [AdminController::class,'showorders'])->name('adminshoworders');
+
 Route::get('addproduct'        , [AdminController::class,'addproduct'])->name('adminaddproduct');
 
 Route::post('insertproduct'    , [AdminController::class,'insertproduct'])->name('admininsertproduct');

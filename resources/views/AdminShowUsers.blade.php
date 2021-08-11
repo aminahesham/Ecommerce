@@ -85,7 +85,7 @@ a.button{
   </div>
 </nav>
 
-<h2 style="color:orange;">Orders Table :</h2> 
+<h2 style="color:orange;">Users Table :</h2> 
 
 <br>
 <br><br>
@@ -109,33 +109,21 @@ a.button{
 
 <tr id="fr">
   <th scope="col">ID</th>
-  <th scope="col">Product id</th>
-  <th scope="col">User id</th>
-  <th scope="col">Payment Method</th>
-  <th scope="col">Address</th>
-  <th scope="col">Phone</th>
-  <th scope="col">Created at</th>
-  <th scope="col">Updated at</th>
-
+  <th scope="col">Name</th>
+  <th scope="col">E-mail</th>
+  <th scope="col">Password</th>
+  
 
 </tr>
 
-  @foreach($orders as $item)
+  @foreach($users as $item)
   <tr>
   <th scope="row">{{$item->id}}</th>
-    <td>{{$item -> product_id}}</td>
-    <td>{{$item -> user_id}}</td>
-    <td>{{$item -> payment_method}}</td>
-    <td>{{$item -> address}}</td>
-    <td>{{$item -> phone}}</td>
-    <td>{{$item -> created_at}}</td>
-    <td>{{$item -> updated_at}}</td>
-
-
+    <td>{{$item -> name}}</td>
+    <td>{{$item -> email}}</td>
+    <td>{{$item -> password}}</td>
 
     <td>
-    <a href="{{url('update/'.$item->id)}}"  class="btn btn-success">Update</a>
-    <a href="{{url('admin/deleteproduct/'.$item->id)}}" class="btn btn-warning" style="background-color:#cc0000">Delete</a>
     
     
     </td>
