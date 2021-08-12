@@ -21,6 +21,7 @@
       <li><a href="{{url('admin/showusers')}}">Users Table</a></li>
       <li><a href="{{url('admin/showorders')}}">Orders Table</a></li>
       <li><a href="{{url('admin/showproducts')}}">Products Table</a></li>
+      <li><a href="{{url('admin/showadmins')}}">Admins Table</a></li>
       <li><a href="{{url('admin/logout')}}" style="color:red;">Logout</a></li>
 
     </ul>

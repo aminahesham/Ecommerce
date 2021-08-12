@@ -78,6 +78,7 @@ a.button{
       <li><a href="{{url('admin/showusers')}}">Users Table</a></li>
       <li><a href="{{url('admin/showorders')}}">Orders Table</a></li>
       <li><a href="{{url('admin/showproducts')}}">Products Table</a></li>
+      <li><a href="{{url('admin/showadmins')}}">Admins Table</a></li>
       <li><a href="{{url('admin/dashboard')}}">Dashboard</a></li>
       <li><a href="{{url('admin/logout')}}"   style="color:orange; float:left;">Logout</a></li>
 
@@ -133,8 +134,7 @@ a.button{
     <a href="{{url('admin/deleteproduct/'.$item->id)}}" class="btn btn-warning" style="background-color:#cc0000">Delete</a>
     
     
-    </td>
-
+  </td>
 @endforeach
   </tr>
  

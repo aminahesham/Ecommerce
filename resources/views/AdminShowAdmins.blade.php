@@ -86,9 +86,10 @@ a.button{
   </div>
 </nav>
 
-<h2 style="color:orange;">Users Table :</h2> 
+<h2 style="color:orange;">Admins Table :</h2> 
 
 <br>
+<a href="{{url('admin/addadmin')}}"  class="btn btn-success" style="background-color:grey;">Add New Admin</a>
 <br><br>
 
 @if(Session::has('productdeleted'))
@@ -113,21 +114,25 @@ a.button{
   <th scope="col">Name</th>
   <th scope="col">E-mail</th>
   <th scope="col">Password</th>
+  <th scope="col">Edit</th>
+
   
 
 </tr>
 
-  @foreach($users as $item)
+  @foreach($admins as $item)
   <tr>
   <th scope="row">{{$item->id}}</th>
     <td>{{$item -> name}}</td>
     <td>{{$item -> email}}</td>
     <td>{{$item -> password}}</td>
 
+    
     <td>
-    
-    
+    <a href="{{url('update/'.$item->id)}}"  class="btn btn-success">Update</a>
+    <a href="{{url('admin/deleteproduct/'.$item->id)}}" class="btn btn-warning" style="background-color:#cc0000">Delete</a>
     </td>
+    
 
 @endforeach
   </tr>
