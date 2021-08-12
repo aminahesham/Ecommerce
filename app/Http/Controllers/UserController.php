@@ -12,6 +12,7 @@ class UserController extends Controller
     public function loginview(){
         return view('Login');
     }
+    
     public function homeview(){
         return view('Home');
     }

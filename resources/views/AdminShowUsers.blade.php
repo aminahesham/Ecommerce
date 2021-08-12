@@ -113,8 +113,7 @@ a.button{
   <th scope="col">Name</th>
   <th scope="col">E-mail</th>
   <th scope="col">Password</th>
-  
-
+  <th scope="col">Edit</th>
 </tr>
 
   @foreach($users as $item)
@@ -123,13 +122,11 @@ a.button{
     <td>{{$item -> name}}</td>
     <td>{{$item -> email}}</td>
     <td>{{$item -> password}}</td>
-
     <td>
-    
-    
+    <a href="{{url('update/'.$item->id)}}"  class="btn btn-success">Update</a>
+    <a href="{{url('admin/deleteuser/'.$item->id)}}" class="btn btn-warning" style="background-color:#cc0000">Delete</a>
     </td>
-
-@endforeach
+  @endforeach
   </tr>
  
 </table>

@@ -12,15 +12,13 @@ use App\Models\Admin;
 
 class AdminController extends Controller
 {
-    /**
-     * Show the application dashboard.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    
     public function dashboard()
     {
         return view('AdminDashboard');
     }
+
+    ////************************************************** ADD & INSERT *************************************************************************////
 
     public function addproduct(){
         return view('AddProduct');
@@ -43,7 +41,7 @@ class AdminController extends Controller
          return redirect()->back();
         }
 
-        public function insertadmin(Request $requ){
+    public function insertadmin(Request $requ){
       
             Admin::create([
            'name'         => $requ -> name,
@@ -52,7 +50,10 @@ class AdminController extends Controller
            
             ]);
             return redirect()->back();
-           }
+        }
+
+
+////************************************************ SHOW ****************************************************************************////
 
         public function showproducts(){
             $products=Product::all();
@@ -72,5 +73,31 @@ class AdminController extends Controller
         public function showadmins(){
             $admins=Admin::all();
             return view('AdminShowAdmins',compact('admins'));
+        }
+
+        ////************************************************ DELETE *****************************************************************************/////
+
+        public function deleteproduct($id){
+
+                Product::destroy($id);
+                 return redirect()->back();
+        }
+
+        public function deleteadmin($id){
+
+            Admin::destroy($id);
+             return redirect()->back();
+        }
+
+        public function deleteorder($id){
+
+            Order::destroy($id);
+             return redirect()->back();
+        }
+
+        public function deleteuser($id){
+
+            User::destroy($id);
+             return redirect()->back();
         }
 }
