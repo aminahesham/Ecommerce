@@ -87,7 +87,11 @@
             <button type="submit" class="btn btn-primary btn-block">Submit</button>
         </div>  
         <br>
-            <a href="{{ url('admin/login') }}" style="color:red;">Admin?</a><br>    
+        <p>already have account ?</p>
+        <a href="{{ url('login') }}" style="color:blue;">Login !!</a><br>    
+
+        <br>
+            <a href="{{ url('admin/login') }}" style="color:red;">Admin ?</a><br>    
     </form>
     
 </div>

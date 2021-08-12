@@ -116,6 +116,8 @@ a.button{
   <th scope="col">category</th>
   <th scope="col">Description</th>
   <th scope="col">Photo</th>
+  <th scope="col">Created At</th>
+  <th scope="col">Updated At</th>
   <th scope="col">Edit</th>
 
 </tr>
@@ -128,6 +130,9 @@ a.button{
     <td>{{$item -> category}}</td>
     <td>{{$item -> description}}</td>
     <td><img class="slider-img" src="{{$item['gallery']}}"style="width:150px;height:150px;" ></td>
+    <td>{{$item -> created_at}}</td>
+    <td>{{$item -> updated_at}}</td>
+
 
     <td>
     <a href="{{url('update/'.$item->id)}}"  class="btn btn-success">Update</a>
