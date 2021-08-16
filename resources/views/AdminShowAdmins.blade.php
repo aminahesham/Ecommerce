@@ -9,8 +9,10 @@ and open the template in the editor.
     <head>
         <meta charset="UTF-8">
         <title>E-comm</title>
-        
-  <title>E-comm</title>
+        <link rel="shortcut icon" type="image/x-icon" href="https://pngimage.net/wp-content/uploads/2018/06/logo-panier-png-5.png" />
+  
+  
+
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">

@@ -9,6 +9,7 @@ and open the template in the editor.
 <html>
 <head>
   <title>E-comm</title>
+  <link rel="shortcut icon" type="image/x-icon" href="https://pngimage.net/wp-content/uploads/2018/06/logo-panier-png-5.png" />
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
