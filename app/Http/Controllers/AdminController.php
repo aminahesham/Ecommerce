@@ -100,4 +100,30 @@ class AdminController extends Controller
             User::destroy($id);
              return redirect()->back();
         }
+
+        ////********************************************** UPDATE PRODUCT ************************************************************************************////
+        
+           public function getproduct($id){
+
+            // check if the selected offer is exisist in the database by its id //
+           $products= Product::find($id);
+           if(!$products)
+           return redirect()->back();
+    
+             // if the offer exist select its all data and send it to the view //
+           $products=product::select('id','name','price','category', 'description','gallery')->find($id);
+           return view('UpdateProduct',compact('products'));
+          }
+   
+             // function to save update in the database by click button save //
+          public function updateproduct(Request $request,$id){
+ 
+           $products =product::find($id);
+            if (!$products)
+           return redirect()->back();
+         
+           $products->update($request->all());
+           return redirect('admin/showproducts'); 
+             }
+       
 }

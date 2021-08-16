@@ -135,7 +135,6 @@ a.button{
 
 
     <td>
-    <a href="{{url('update/'.$item->id)}}"  class="btn btn-success">Update</a>
     <a href="{{url('admin/deleteorder/'.$item->id)}}" class="btn btn-warning" style="background-color:#cc0000">Delete</a>
     
     

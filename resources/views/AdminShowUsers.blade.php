@@ -123,7 +123,6 @@ a.button{
     <td>{{$item -> email}}</td>
     <td>{{$item -> password}}</td>
     <td>
-    <a href="{{url('update/'.$item->id)}}"  class="btn btn-success">Update</a>
     <a href="{{url('admin/deleteuser/'.$item->id)}}" class="btn btn-warning" style="background-color:#cc0000">Delete</a>
     </td>
   @endforeach

@@ -39,9 +39,9 @@ class ProductController extends Controller
             $cart -> user_id = $req -> Session()->get('user')['id'];
             $cart -> product_id = $req -> product_id;
             $cart ->save();
-            return redirect()->back();
+            return redirect('products');
         }else{
-            return view('Product');
+            return redirect()->back();
         }
     }
 
