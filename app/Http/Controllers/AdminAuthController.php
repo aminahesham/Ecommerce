@@ -14,29 +14,10 @@ use Hash;
 
 class AdminAuthController extends Controller
 {
-    /*
-    |--------------------------------------------------------------------------
-    | Login Controller
-    |--------------------------------------------------------------------------
-    |
-    | This controller handles authenticating users for the application and
-    | redirecting them to your home screen. The controller uses a trait
-    | to conveniently provide its functionality to your applications.
-    |
-    */
-   // protected $redirectTo = 'adminLoginPost';
-    /**
-     * Where to redirect users after login.
-     *
-     * @var string
-     */
+    
     protected $redirectTo = 'admin/login';
 
-    /**
-     * Create a new controller instance.
-     *
-     * @return void
-     */
+   
     public function __construct()
     {
         $this->middleware('admin', ['except' => 'logout']);
@@ -47,11 +28,6 @@ class AdminAuthController extends Controller
         return response()->view('AdminLogin');
     }
 
-    /**
-     * Show the application loginprocess.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function postLogin(Request $req)
     {
         $this->validate($req, [
@@ -69,12 +45,8 @@ class AdminAuthController extends Controller
 
     }
 
-    /**
-     * Show the application logout.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function logout()
+
+    public function Logout()
     {
       auth()->guard('admin')->logout();
       Session :: forget('admins');

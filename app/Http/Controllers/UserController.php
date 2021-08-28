@@ -9,16 +9,16 @@ use Hash;
 class UserController extends Controller
 {
     //
-    public function loginview(){
+    public function loginView(){
         return view('Login');
     }
     
-    public function homeview(){
+    public function homeView(){
         return view('Home');
     }
     
 
-    public function login(Request $req){
+    public function Login(Request $req){
         $user=User::where(['email'=> $req -> email])-> first();
         if(! $user ||Hash::check($req->password,$user->password)){
             return 'User Name or Password incorrect';
@@ -28,7 +28,7 @@ class UserController extends Controller
         }
     }
 
-    public function register(Request $req){
+    public function Register(Request $req){
 
              User::create([
             'name'     => $req -> name,

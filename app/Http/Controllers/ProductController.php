@@ -14,25 +14,26 @@ use Illuminate\Support\Facades\DB;
 class ProductController extends Controller
 {
     
-    public function search(Request $req){
+    public function Search(Request $req){
         $data = Product :: where('name' , 'like' , '%' . $req -> input('query').'%') -> get();
         return view('search' , ['products' => $data]);
 
     }
 
-    ////***************************************PRODUCTS**************************************************////
-    public function showproducts(){
+////***************************************PRODUCTS**************************************************////
+    public function showProducts(){
         $data =Product :: all();
         return view('Product' , ['products' => $data]);
     }
 
-    public function productdetails($id){
+    public function productDetails($id){
         $data =Product :: find($id);
         return view('Productdetails' , ['products' => $data]);
     }
 
-    ////**************************************CART**************************************************////
-    public function addtocart(Request $req){
+////**************************************CART**************************************************////
+
+    public function addToCart(Request $req){
 
         if ($req -> Session()->has('user')){
             $cart = new Cart;
@@ -45,12 +46,12 @@ class ProductController extends Controller
         }
     }
 
-    static function cartitem(){
+    static function cartItem(){
         $userid =Session()->get('user')['id'];
         return Cart::where('user_id' , $userid)-> count();
     }
 
-    public function cartlist(){
+    public function cartList(){
         $userid = Session::get('user')['id'];
         $products = DB::table('cart')
         ->join('products' , 'cart.product_id' , '=' , 'products.id')
@@ -60,7 +61,7 @@ class ProductController extends Controller
         return view('CartList' , ['products' => $products]);
     }
 
-    public function cartdelete($id){
+    public function cartDelete($id){
 
        Cart::destroy($id);
         return redirect('/cartlist');
@@ -68,7 +69,7 @@ class ProductController extends Controller
 
     ////*********************************ORDERS*********************************** */
 
-    public function confirmorder(){
+    public function confirmOrder(){
         $userid = Session::get('user')['id'];
         $total = Db::table('cart')
         ->join('products' , 'cart.product_id' , '=' ,'products.id')
@@ -78,7 +79,7 @@ class ProductController extends Controller
         return view('ConfirmOrders' , ['total' => $total]);
     
     }
-    public function myorders(){
+    public function myOrders(){
         $userid = Session::get('user')['id'];
         $orders = Db::table('orders')
         ->join('products' , 'orders.product_id' , '=' ,'products.id')
@@ -88,7 +89,7 @@ class ProductController extends Controller
         return view('MyOrders' , ['orders' => $orders]);
     }
 
-    public function saveorder(Request $req){
+    public function saveOrder(Request $req){
         $userid = Session::get('user')['id'];
         $allorders = Cart::where('user_id' , $userid)->get();
 

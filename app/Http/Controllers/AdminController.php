@@ -13,22 +13,22 @@ use App\Models\Admin;
 class AdminController extends Controller
 {
     
-    public function dashboard()
+    public function Dashboard()
     {
         return view('AdminDashboard');
     }
 
-    ////************************************************** ADD & INSERT *************************************************************************////
+////************************************************** ADD & INSERT *************************************************************************////
 
-    public function addproduct(){
+    public function addProduct(){
         return view('AddProduct');
     }
 
-    public function addadmin(){
+    public function addAdmin(){
         return view('AddAdmin');
     }
 
-    public function insertproduct(Request $requ){
+    public function insertProduct(Request $requ){
       
          Product::create([
         'name'         => $requ -> name,
@@ -41,7 +41,7 @@ class AdminController extends Controller
          return redirect()->back();
         }
 
-    public function insertadmin(Request $requ){
+    public function insertAdmin(Request $requ){
       
             Admin::create([
            'name'         => $requ -> name,
@@ -55,47 +55,47 @@ class AdminController extends Controller
 
 ////************************************************ SHOW ****************************************************************************////
 
-        public function showproducts(){
+        public function showProducts(){
             $products=Product::all();
             return view('AdminShowProducts',compact('products'));
         }
 
-        public function showusers(){
+        public function showUsers(){
             $users=User::all();
             return view('AdminShowUsers',compact('users'));
         }
 
-        public function showorders(){
+        public function showOrders(){
             $orders=Order::all();
             return view('AdminShowOrders',compact('orders'));
         }
 
-        public function showadmins(){
+        public function showAdmins(){
             $admins=Admin::all();
             return view('AdminShowAdmins',compact('admins'));
         }
 
-        ////************************************************ DELETE *****************************************************************************/////
+////************************************************ DELETE *****************************************************************************/////
 
-        public function deleteproduct($id){
+        public function deleteProduct($id){
 
                 Product::destroy($id);
                  return redirect()->back();
         }
 
-        public function deleteadmin($id){
+        public function deleteAdmin($id){
 
             Admin::destroy($id);
              return redirect()->back();
         }
 
-        public function deleteorder($id){
+        public function deleteOrder($id){
 
             Order::destroy($id);
              return redirect()->back();
         }
 
-        public function deleteuser($id){
+        public function deleteUser($id){
 
             User::destroy($id);
              return redirect()->back();
@@ -103,7 +103,7 @@ class AdminController extends Controller
 
         ////********************************************** UPDATE PRODUCT ************************************************************************************////
         
-           public function getproduct($id){
+        public function getProduct($id){
 
             // check if the selected offer is exisist in the database by its id //
            $products= Product::find($id);
@@ -116,7 +116,7 @@ class AdminController extends Controller
           }
    
              // function to save update in the database by click button save //
-          public function updateproduct(Request $request,$id){
+        public function updateProduct(Request $request,$id){
  
            $products =product::find($id);
             if (!$products)
