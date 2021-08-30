@@ -21,6 +21,28 @@ and open the template in the editor.
     <body>
 
   <style>
+         #fr {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#fr td, #fr th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#fr tr:nth-child(even){background-color: #f2f2f2;}
+
+#fr tr:hover {background-color: #ddd;}
+
+#fr th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
 
 body {
 background-color:white;
@@ -85,10 +107,9 @@ a.button{
   </div>
 </nav>
 
-<h2 style="color:orange;">Products Table :</h2> 
+<h3 style="color:orange; padding:8px;"> Products Table :</h3> 
 
-<br>
-<a href="{{url('admin/addproduct')}}"  class="btn btn-success" style="background-color:grey;">Add Product</a>
+<a href="{{url('admin/addproduct')}}"  class="btn btn-success" style="background-color:orange;margin:8px;">Add Product</a>
 <br><br>
 
 @if(Session::has('productdeleted'))
@@ -135,7 +156,7 @@ a.button{
 
     <td>
     <a href="{{url('admin/getproduct/'.$item->id)}}"  class="btn btn-success">Update</a>
-    <a href="{{url('admin/deleteproduct/'.$item->id)}}" class="btn btn-warning" style="background-color:#cc0000">Delete</a>
+    <a href="{{url('admin/deleteproduct/'.$item->id)}}" class="btn btn-warning" style="background-color:orange">Delete</a>
     </td>
 @endforeach
   </tr>

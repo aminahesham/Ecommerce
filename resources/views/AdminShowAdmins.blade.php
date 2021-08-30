@@ -24,6 +24,28 @@ and open the template in the editor.
     <body>
 
   <style>
+    #fr {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 100%;
+}
+
+#fr td, #fr th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#fr tr:nth-child(even){background-color: #f2f2f2;}
+
+#fr tr:hover {background-color: #ddd;}
+
+#fr th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
 
 body {
 background-color:white;
@@ -42,12 +64,7 @@ table, th, td {
   padding: 5px;
   margin-top:5px;
 }
-#fr{
-    color:orange;
-    font-size:20px;
-    font-weight:bold;
-    background-color:white;
-}
+
 a{
     color: black;
     text-decoration:none;
@@ -88,10 +105,10 @@ a.button{
   </div>
 </nav>
 
-<h2 style="color:orange;">Admins Table :</h2> 
+<h3 style="color:orange;padding:8px;"> Admins Table :</h3> 
 
-<br>
-<a href="{{url('admin/addadmin')}}"  class="btn btn-success" style="background-color:grey;">Add New Admin</a>
+
+<a href="{{url('admin/addadmin')}}"  class="btn btn-success" style="background-color:orange;margin:8px;">Add New Admin</a>
 <br><br>
 
 @if(Session::has('productdeleted'))
@@ -131,7 +148,7 @@ a.button{
 
     
     <td>
-    <a href="{{url('admin/deleteadmin/'.$item->id)}}" class="btn btn-warning" style="background-color:#cc0000">Delete</a>
+    <a href="{{url('admin/deleteadmin/'.$item->id)}}" class="btn btn-warning" style="background-color:#orange">Delete</a>
     </td>
     
 

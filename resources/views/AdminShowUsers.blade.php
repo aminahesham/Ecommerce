@@ -22,7 +22,30 @@ and open the template in the editor.
     <body>
 
   <style>
+     #fr {
+  font-family: Arial, Helvetica, sans-serif;
+  border-collapse: collapse;
+  width: 99%;
+  margin:4px;
+  padding:8px;
+}
 
+#fr td, #fr th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+#fr tr:nth-child(even){background-color: #f2f2f2;}
+
+#fr tr:hover {background-color: #ddd;}
+
+#fr th {
+  padding-top: 12px;
+  padding-bottom: 12px;
+  text-align: left;
+  background-color: #04AA6D;
+  color: white;
+}
 body {
 background-color:white;
 }
@@ -86,10 +109,10 @@ a.button{
   </div>
 </nav>
 
-<h2 style="color:orange;">Users Table :</h2> 
+<h3 style="color:orange; font-family: Arial; margin:2px; padding:4px;"> Users Table :</h3> 
+
 
 <br>
-<br><br>
 
 @if(Session::has('productdeleted'))
             <div align="center" class="alert alert-success" role="alert" style="color:white; font-size:30px">
@@ -123,7 +146,7 @@ a.button{
     <td>{{$item -> email}}</td>
     <td>{{$item -> password}}</td>
     <td>
-    <a href="{{url('admin/deleteuser/'.$item->id)}}" class="btn btn-warning" style="background-color:#cc0000">Delete</a>
+    <a href="{{url('admin/deleteuser/'.$item->id)}}" class="btn btn-warning" style="background-color:orange">Delete</a>
     </td>
   @endforeach
   </tr>
