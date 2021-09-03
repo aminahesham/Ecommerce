@@ -16,12 +16,14 @@
     width: 340px;
     margin: 50px auto;
   	font-size: 15px;
+    border-radius: 15px 50px; 
 }
 .login-form form {
     margin-bottom: 15px;
     background: #f7f7f7;
     box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
     padding: 30px;
+    border-radius: 15px 50px; 
 }
 .login-form h2 {
     margin: 0 0 15px;
@@ -40,7 +42,8 @@
 <div class="login-form">
     <form action="{{url('admin/login') }}" method="post">
     	{!! csrf_field() !!}
-        <h2 class="text-center">Admin Log in</h2>
+        <h2 class="text-center" >Admin Log in</h2>
+        <br>
         @if(Session::get('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
             {{ Session::get('success') }}
@@ -66,6 +69,7 @@
             </span>
             @endif
         </div>
+        <br><br>
         <div class="form-group">
             <input type="password" class="form-control" name="password" placeholder="Password" required="required">
             @if ($errors->has('password'))
@@ -74,11 +78,13 @@
             </span>
             @endif
         </div>
+        <br>
+
         <div class="form-group">
             <button type="submit" class="btn btn-primary btn-block">Log in</button>
         </div>   
         <br>
-            <h6>Login as user !</h6>
+            <h6>Login as user !</h6><br>
             <a href="{{ url('login') }}" style="color:red;">User Login</a><br>   
     </form>
 </div>

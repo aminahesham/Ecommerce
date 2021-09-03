@@ -22,15 +22,16 @@ body {
 }
 form{
     background-color:white;
-    border: 3px solid white;
-    border-radius: 10px;
     padding: 10px;
     margin: 10px;
     width: 300px;
 }
 fieldset {
- border-color: black;
+ border-color: orange;
+ border-radius: 15px 50px; 
+
 }
+
 #submit{
     width: 65px;
     height: 40px;
@@ -116,33 +117,33 @@ input[type="text"]{
   </div>
 </nav>
 
-<div align="center">
+<div align="center" id="div">
 
 <form id="form" method="POST" action="{{URL('admin/addadmin')}}" enctype="multipart/form-data">
 @csrf
 <fieldset>
 <h1 style="color:orange; text-align: center;">Add New Admin</h1>
-
+<br>
 
 <div class="form-group">
   <label for="name_ar" style="color:black" ><b>Name</b></label><br>
   <input type="text" class="col-sm-2 col-form-label text-danger"  name="name" value="" maxlength="50" size="30" placeholder="Name"><br>
 </div>      
 
-
+<br>
 
 <div class="form-group">
   <label for="price" style="color:black"><b>Email </b></label><br>
   <input type="email" id="email" name="email" value="" maxlength="50" size="30" placeholder="Name"><br>
 </div>
 
-
+<br>
 <div class="form-group">
   <label for="details_ar" style="color:black"><b>Password</b></label><br>
   <input type="password" id="category" name="password" value="" maxlength="50" size="30" placeholder="Password"><br>
 </div>
 
-
+<br>
 
   <input type="submit" id="submit" value="save" formmethod="POST" formaction="{{url('admin/insertadmin')}}"><br>
 

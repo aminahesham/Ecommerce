@@ -108,7 +108,7 @@ a.button{
 <h3 style="color:orange;padding:8px;"> Admins Table :</h3> 
 
 
-<a href="{{url('admin/addadmin')}}"  class="btn btn-success" style="background-color:orange;margin:8px;">Add New Admin</a>
+<a href="{{url('admin/addadmin')}}"  class="btn btn-success" style="background-color:orange; margin:8px; border-radius:25px;">Add New Admin</a>
 <br><br>
 
 @if(Session::has('productdeleted'))
@@ -148,7 +148,7 @@ a.button{
 
     
     <td>
-    <a href="{{url('admin/deleteadmin/'.$item->id)}}" class="btn btn-warning" style="background-color:#orange">Delete</a>
+    <a href="{{url('admin/deleteadmin/'.$item->id)}}" class="btn btn-warning" style="background-color:orange;">Delete</a>
     </td>
     
 

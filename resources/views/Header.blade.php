@@ -32,9 +32,9 @@ if(Session::has('user')){
     <form class="navbar-form navbar-left" action="search">
     @csrf
       <div class="form-group">
-        <input type="text" name='query' class="form-control" placeholder="Search" name="search">
+        <input type="text" name='query' class="form-control" style="border-radius:25px;" placeholder="Search" name="search">
       </div>
-      <button type="submit" class="btn btn-default">Search</button>
+      <button type="submit" class="btn btn-default" style="border-radius:25px;">Search</button>
     </form>
     <ul class="nav navbar-nav navbar-right">
     <li><a href="cartlist" style="color:white;">cart({{$total}})<img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG42.png" margin="2px" height="30px" width="40px"/></a>

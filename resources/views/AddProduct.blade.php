@@ -18,8 +18,7 @@ and open the template in the editor.
 
         <style>
 
-body {
-}
+
 form{
     background-color:white;
     border: 3px solid white;
@@ -29,7 +28,9 @@ form{
     width: 300px;
 }
 fieldset {
- border-color: black;
+ border-color: orange;
+ border-radius: 15px 50px; 
+
 }
 #submit{
     width: 65px;
