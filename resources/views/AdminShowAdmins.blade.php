@@ -125,7 +125,7 @@ a.button{
 @endif
 
 
-<table style="width:100%" padding="5px">
+<table style="width:99%;margin:5px;">
 
 
 <tr id="fr">

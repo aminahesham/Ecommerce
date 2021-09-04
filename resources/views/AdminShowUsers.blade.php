@@ -108,7 +108,6 @@ a.button{
     </ul>
   </div>
 </nav>
-
 <h3 style="color:orange; font-family: Arial; margin:2px; padding:4px;"> Users Table :</h3> 
 
 
@@ -128,7 +127,7 @@ a.button{
 @endif
 
 
-<table style="width:100%" padding="5px">
+<table style="width:99%;margin:5px;">
 
 
 <tr id="fr">

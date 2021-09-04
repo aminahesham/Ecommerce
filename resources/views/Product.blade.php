@@ -1,6 +1,6 @@
 @extends('master')
 @section("content")
-<h2 style="text-align:center">products </h2>
+<h2 style="text-align:center;color:orange;text-shadow: 2px 2px 4px #000000;">products </h2>
 <div class="custom-product">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->
@@ -39,7 +39,7 @@
 
  <!-- Trending Products -->
 <div class="trending-wrapper">
-<h3>Trending Products</h3>
+<h3 style="color:orange;">Trending Products</h3>
   @foreach($products as $item)
   <div class="trending-items">
   <a href="{{ route('product.details', [$item->id]) }}">
