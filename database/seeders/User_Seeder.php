@@ -19,8 +19,21 @@ class User_Seeder extends Seeder
         //
         DB::table('users')->insert([
 
-            'name'     =>' hesham',
-            'email'    => 'hesham123@gmail.com',
+            'name'     =>' menna',
+            'email'    => 'menna@gmail.com',
+            'password' => '123456'
+        ]);
+        DB::table('users')->insert([
+
+            'name'     =>' roma',
+            'email'    => 'roma@gmail.com',
+            'password' => '123456'
+        ]);
+
+        DB::table('users')->insert([
+
+            'name'     =>' memo',
+            'email'    => 'memo@gmail.com',
             'password' => '123456'
         ]);
     }

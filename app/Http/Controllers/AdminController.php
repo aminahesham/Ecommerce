@@ -6,12 +6,19 @@ use App\Http\Requests;
 use Illuminate\Http\Request;
 use App\Models\Product;
 use App\Models\User;
+use App\Models\Role;
+use App\Models\RoleUser;
 use App\Models\Order;
 use App\Models\Admin;
+use Session;
+use DB;
 
 
 class AdminController extends Controller
 {
+    public function __construct(){
+        $this->middleware('admin');
+    }
     
     public function Dashboard()
     {
@@ -58,11 +65,14 @@ class AdminController extends Controller
         public function showProducts(){
             $products=Product::all();
             return view('AdminShowProducts',compact('products'));
+            
         }
 
         public function showUsers(){
+           
             $users=User::all();
             return view('AdminShowUsers',compact('users'));
+
         }
 
         public function showOrders(){
@@ -105,17 +115,14 @@ class AdminController extends Controller
         
         public function getProduct($id){
 
-            // check if the selected offer is exisist in the database by its id //
            $products= Product::find($id);
            if(!$products)
            return redirect()->back();
     
-             // if the offer exist select its all data and send it to the view //
            $products=product::select('id','name','price','category', 'description','gallery')->find($id);
            return view('UpdateProduct',compact('products'));
           }
    
-             // function to save update in the database by click button save //
         public function updateProduct(Request $request,$id){
  
            $products =product::find($id);
@@ -126,4 +133,30 @@ class AdminController extends Controller
            return redirect('admin/showproducts'); 
              }
        
-}
+
+        /////**************************************************UPDATE USER ROLES*********************************************************************************////
+
+        // function to save update in the database by click button save //
+        public function getUser($id){
+
+           $users=User::select('id','name','email')->find($id);
+           return view('UpdateUser',compact('users'));
+          }
+   
+        public function updateUser(Request $request,User $user,$id){
+            
+           $user = User::find($id);
+           $requestData = $request->except('email' , 'name');
+           $user->update($requestData);
+           $user->syncRoles($request->roles);
+
+           return redirect('admin/showusers');
+
+             }
+
+
+
+    }
+
+
+

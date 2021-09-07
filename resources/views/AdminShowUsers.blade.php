@@ -1,4 +1,11 @@
 
+<?php
+use App\Http\Controllers\UserController;
+use App\Models\Role; 
+
+$roles=Role::all();
+
+?>
 <!DOCTYPE html>
 <!--
 To change this license header, choose License Headers in Project Properties.
@@ -75,7 +82,6 @@ a{
     font-size:15px;
     padding: 15px 25px;
     display:inline;
-    font-weight:bold;
 }
 a:hover {
   color: #ffffcc;
@@ -96,7 +102,9 @@ a.button{
 </style> 
 <nav class="navbar navbar-default">
   <div class="container-fluid">
-    
+  <div class="navbar-header">
+      <a class="navbar-brand" href="" style="color:orange;text-shadow: 2px 2px 4px ;">E-comm</a>
+    </div>
     <ul class="nav navbar-nav">
       <li><a href="{{url('admin/showusers')}}">Users Table</a></li>
       <li><a href="{{url('admin/showorders')}}">Orders Table</a></li>
@@ -134,18 +142,28 @@ a.button{
   <th scope="col">ID</th>
   <th scope="col">Name</th>
   <th scope="col">E-mail</th>
-  <th scope="col">Password</th>
+  <th scope="col">Roles</th>
   <th scope="col">Edit</th>
 </tr>
 
-  @foreach($users as $item)
+  @foreach($users as $index=>$user)
   <tr>
-  <th scope="row">{{$item->id}}</th>
-    <td>{{$item -> name}}</td>
-    <td>{{$item -> email}}</td>
-    <td>{{$item -> password}}</td>
+  <th scope="row">{{$user->id}}</th>
+    <td>{{$user -> name}}</td>
+    <td>{{$user -> email}}</td>
     <td>
-    <a href="{{url('admin/deleteuser/'.$item->id)}}" class="btn btn-warning" style="background-color:orange">Delete</a>
+      @foreach($user->roles as $role)
+      {{ $role ->display_name }}
+     @endforeach
+    </td>
+
+    
+
+    <td>
+    <a href="{{url('admin/deleteuser/'.$user->id)}}" class="btn btn-warning" style="background-color:orange">Delete</a>
+
+    <a href="{{url('admin/getuser/'.$user->id)}}" class="btn btn-warning" style="background-color: #00e64d">Update</a>
+
     </td>
   @endforeach
   </tr>

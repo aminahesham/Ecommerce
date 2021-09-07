@@ -1,16 +1,20 @@
 <?php
 use App\Http\Controllers\ProductController;
+use App\Models\User;
+
+$user=DB::table('users');
 
 $total=0;
 if(Session::has('user')){
   $total=ProductController::cartitem();
 }
+
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <title>Bootstrap Example</title>
+  <title>E-comm</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
@@ -28,6 +32,12 @@ if(Session::has('user')){
       <li class="active"><a href="{{ url('home') }}">Home</a></li>
       <li><a href="{{ url('products') }}">Products</a></li>
       <li><a href="{{ url('myorders') }}">My Orders</a></li>
+
+      @if(session('user')->hasRole('seller_user'))
+      
+      <li><a href="{{ url('useraddproduct') }}">Add Product</a></li>
+
+      @endif
     </ul>
     <form class="navbar-form navbar-left" action="search">
     @csrf

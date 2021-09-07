@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\RoleUser;
 use Hash;
 
 class UserController extends Controller
@@ -30,11 +31,22 @@ class UserController extends Controller
 
     public function Register(Request $req){
 
-             User::create([
+           $user=  User::create([
             'name'     => $req -> name,
             'email'    => $req -> email,
             'password' => $req -> password,
+            
              ]);
-            return redirect('login');
-              }
+             RoleUser::create([
+               'role_id'  => 3,
+               'user_id'  => $user -> id,
+               'user_type'=> 'normal',
+                 
+             ]);
+
+             return redirect('login');
+
+     }
+
+
 }

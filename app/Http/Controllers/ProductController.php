@@ -109,5 +109,25 @@ class ProductController extends Controller
         return redirect('/home');
 
     }
+
+/////***************************************************SELLER USER ADD PRODUCT*************************************************************************** */
+   
+    public function addProduct(){
+        
+        return view('UserAddProduct');
+    }
+
+    public function insertProduct(Request $requ){
+      
+         Product::create([
+        'name'         => $requ -> name,
+        'price'        => $requ -> price,
+        'category'     => $requ -> category,
+        'description'  => $requ -> description,
+        'gallery'      => $requ -> gallery,
+
+         ]);
+         return redirect()->back();
+        }
 }
 

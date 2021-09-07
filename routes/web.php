@@ -22,7 +22,7 @@ Route::get('admin/logout' ,[AdminAuthController::class,'Logout'])->name('adminLo
 Route::group(['prefix' => 'admin','middleware' => 'admin'], function () {
 	// Admin Dashboard
 
-Route::get('dashboard'          ,[App\Http\Controllers\AdminController::class,'Dashboard'])->name('admindashboard');	
+Route::get('dashboard'          , [AdminController::class,'Dashboard'])->name('admindashboard');	
 
 Route::get('showproducts'       , [AdminController::class,'showProducts'])->name('adminshowproducts');
 
@@ -52,6 +52,9 @@ Route::get('getproduct/{id}'    , [AdminController::class,'getProduct']);
 
 Route::post('updateproduct/{id}', [AdminController::class,'updateProduct']);
 
+Route::get('getuser/{id}'       , [AdminController::class,'getUser']);
+
+Route::post('updateuser/{id}'   , [AdminController::class,'updateUser']);
 
 
 });
@@ -78,7 +81,8 @@ Route::get('/home'       , [UserController::class,'homeView']);
 
 ////////////////////////////////////////////////// SITE OPERATIONS ///////////////////////////////////////////////////////////////////
 
-
+Route::group(['middleware' => 'web'], function () {
+	
 Route::get('products'         , [ProductController::class,'showProducts']);
 
 Route::get('details/{id}'     , [ProductController::class,'productDetails'])->name('product.details');
@@ -97,4 +101,9 @@ Route::post('/saveorder'      , [ProductController::class,'saveOrder']);
 
 Route::get('/myorders'        , [ProductController::class,'myOrders']);
 
+Route::get('useraddproduct'   , [productController::class,'addProduct']);
 
+Route::post('insertproduct'   , [productController::class,'insertProduct']);
+
+
+});
