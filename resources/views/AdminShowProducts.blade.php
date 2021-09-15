@@ -134,7 +134,6 @@ a.button{
   <th scope="col">ID</th>
   <th scope="col">Name</th>
   <th scope="col">Price</th>
-  <th scope="col">category</th>
   <th scope="col">Description</th>
   <th scope="col">Photo</th>
   <th scope="col">Created At</th>
@@ -148,7 +147,6 @@ a.button{
   <th scope="row">{{$item->id}}</th>
     <td>{{$item -> name}}</td>
     <td>{{$item -> price}}</td>
-    <td>{{$item -> category}}</td>
     <td>{{$item -> description}}</td>
     <td><img class="slider-img" src="{{$item['gallery']}}"style="width:150px;height:150px;" ></td>
     <td>{{$item -> created_at}}</td>

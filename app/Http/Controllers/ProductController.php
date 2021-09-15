@@ -122,7 +122,6 @@ class ProductController extends Controller
          Product::create([
         'name'         => $requ -> name,
         'price'        => $requ -> price,
-        'category'     => $requ -> category,
         'description'  => $requ -> description,
         'gallery'      => $requ -> gallery,
 

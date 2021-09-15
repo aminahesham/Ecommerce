@@ -160,9 +160,12 @@ a.button{
     
 
     <td>
-    <a href="{{url('admin/deleteuser/'.$user->id)}}" class="btn btn-warning" style="background-color:orange">Delete</a>
 
     <a href="{{url('admin/getuser/'.$user->id)}}" class="btn btn-warning" style="background-color: #00e64d">Update</a>
+
+
+    <a href="{{url('admin/deleteuser/'.$user->id)}}" class="btn btn-warning" style="background-color:orange">Delete</a>
+
 
     </td>
   @endforeach

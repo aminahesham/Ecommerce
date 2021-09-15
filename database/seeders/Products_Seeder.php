@@ -17,47 +17,47 @@ class Products_Seeder extends Seeder
         //
         DB::table('products')->insert([
 
-            'name'        => 'lays ',
-            'price'       => '60',
-            'category'    => 'snaks',
-            'description' => 'fried potato ships',
-            'gallery'     => 'https://cdn.docplexus.com/114/9/0/23566c49-f918-4705-bec0-4c70dbccc676__t.jpg',
-        ]);
-
-        DB::table('products')->insert([
-
-            'name'        => 'up&go ',
-            'price'       => '25',
-            'category'    => 'snaks',
-            'description' => 'fresh orange juice',
-            'gallery'     => 'https://res.cloudinary.com/sanitarium/image/fetch/q_auto/https://www.sanitarium.com.au/getmedia%2Fb63b7171-9bdc-4fa1-ae12-3e35cc33c5b3%2F2020_UP-GO_ProductTile.jpg%3Fwidth%3D578%26height%3D350%26ext%3D.jpg',
-        ]);
-
-        DB::table('products')->insert([
-
-            'name'        => 'laptop dell',
+            'name'        => 'S20 ',
             'price'       => '20000',
             'category'    => 'devices',
-            'description' => 'laptop dell core i7 , ram 8',
-            'gallery'     => 'https://ssl-product-images.www8-hp.com/digmedialib/prodimg/lowres/c06539618.png',
+            'description' => 'samsong s20 ',
+            'gallery'     => 'https://i.gadgets360cdn.com/products/large/moto-g9-650x800-1598251072.jpg',
         ]);
 
         DB::table('products')->insert([
 
-            'name'        => 'canoon',
-            'price'       => '16000',
-            'category'    => 'devices',
-            'description' => 'degital camera ',
-            'gallery'     => 'https://m.media-amazon.com/images/I/914hFeTU2-L._SL1500_.jpg',
+            'name'        => 'fitness ',
+            'price'       => '20',
+            'category'    => 'snaks',
+            'description' => 'corn flex',
+            'gallery'     => 'https://i.pinimg.com/originals/ee/29/2e/ee292e9bbe6fc5418dc2cf11b9ccfb51.png',
         ]);
 
         DB::table('products')->insert([
 
-            'name'        => 'samsong LCD',
-            'price'       => '8000',
-            'category'    => 'devices',
-            'description' => 'altra tv samsong degital ',
-            'gallery'     => 'https://images.samsung.com/is/image/samsung/eg-fhd-t5300-ua43t5300auxeg-rperspectiveblack-254763435?$720_576_PNG$',
+            'name'        => 'coffee mate',
+            'price'       => '15',
+            'category'    => 'drinkes',
+            'description' => 'ice coffee',
+            'gallery'     => 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cml-cinnamon-toast-crunch-32oz-cml-funfetti-32oz-001-1574112484.jpg?crop=0.459xw:0.574xh;0.245xw,0.321xh&resize=480:*',
+        ]);
+
+        DB::table('products')->insert([
+
+            'name'        => 'nestle',
+            'price'       => '10',
+            'category'    => 'drinkes',
+            'description' => 'cold water',
+            'gallery'     => 'https://sc01.alicdn.com/kf/HTB1cE4gLXXXXXXkXFXXq6xXFXXXK/Plastic-Bottle-Nestle-Pure-Life-Mineral-Water.jpg',
+        ]);
+
+        DB::table('products')->insert([
+
+            'name'        => 'kitkat',
+            'price'       => '30',
+            'category'    => 'snaks',
+            'description' => 'chocolate',
+            'gallery'     => 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c9/KitKat_logo.svg/1200px-KitKat_logo.svg.png',
         ]);
     }
 }

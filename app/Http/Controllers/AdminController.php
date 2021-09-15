@@ -16,9 +16,7 @@ use DB;
 
 class AdminController extends Controller
 {
-    public function __construct(){
-        $this->middleware('admin');
-    }
+  
     
     public function Dashboard()
     {
@@ -119,7 +117,7 @@ class AdminController extends Controller
            if(!$products)
            return redirect()->back();
     
-           $products=product::select('id','name','price','category', 'description','gallery')->find($id);
+           $products=product::select('id','name','price', 'description','gallery')->find($id);
            return view('UpdateProduct',compact('products'));
           }
    

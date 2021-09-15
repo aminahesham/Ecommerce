@@ -138,11 +138,6 @@ input[type="text"]{
 </div>
 
 
-<div class="form-group">
-  <label for="details_ar" style="color:black"><b>Category</b></label><br>
-  <input type="text" id="category" name="category" value="" maxlength="50" size="30" placeholder="Category"><br>
-</div>
-
 
 <div class="form-group">
   <label for="details_en" style="color:black"><b>Description</b></label><br>

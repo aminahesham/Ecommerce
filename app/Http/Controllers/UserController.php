@@ -38,7 +38,7 @@ class UserController extends Controller
             
              ]);
              RoleUser::create([
-               'role_id'  => 3,
+               'role_id'  => 1,
                'user_id'  => $user -> id,
                'user_type'=> 'normal',
                  

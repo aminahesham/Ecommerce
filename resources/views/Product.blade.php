@@ -1,6 +1,8 @@
 @extends('master')
 @section("content")
 <h2 style="text-align:center;color:orange;text-shadow: 2px 2px 4px #000000;">products </h2>
+
+
 <div class="custom-product">
 <div id="myCarousel" class="carousel slide" data-ride="carousel">
   <!-- Indicators -->

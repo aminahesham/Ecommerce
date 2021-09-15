@@ -102,6 +102,9 @@ input{
     padding: 5px;
 }
 
+
+
+
 </style> 
 
 <nav class="navbar navbar-default">
@@ -145,26 +148,23 @@ input{
 </div>
 
 <br>
-<div class="form-group">
+<div class="container">
 <label for="role" style="color:black;font-size:20px"><b> Role :</b></label><br><br>
 
-<div class="checkbox">
-    <label>
-        <input type="checkbox" name="roles[]" value="seller_user" {{$users->hasRole('seller_user')? 'checked' : ''}}>Seller User
-    </label><br>
-</div>
 
-<div class="checkbox">
-    <label>
-        <input type="checkbox" name="roles[]" value="normal_user" {{$users->hasRole('normal_user')? 'checked' : ''}}>Normal User
-    </label><br>
-</div>
 
-<div class="checkbox">
-    <label>
-        <input type="checkbox" name="roles[]" value="super_admin" {{$users->hasRole('super_admin')? 'checked' : ''}}>Super Admin
-    </label><br>
-</div>
+
+<label for="normal_user"  class="container">
+<input type="checkbox" id="normal_user" name="roles[]" value="normal_user" {{$users->hasRole('normal_user')? 'checked' : ''}}>Normal User
+</label><br>
+
+
+<label for="seller_user" class="container">
+<input type="checkbox" id="seller_user" name="roles[]" value="seller_user" {{$users->hasRole('seller_user')? 'checked' : ''}}>Seller User
+</label><br>
+
+
+
 
 </div>
 
