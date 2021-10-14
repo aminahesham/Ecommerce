@@ -51,7 +51,7 @@ if(Session::has('user')){
 
       <li class="dropdown">
         <a class="dropdown-toggle" data-toggle="dropdown"  style="color:orange;">{{Session::get('user')['name']}}
-        <span class="caret"></span></a>
+        <span class=""></span></a>
         <ul class="dropdown-menu">
         </ul>
       </li>

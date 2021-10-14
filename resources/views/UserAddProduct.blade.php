@@ -1,14 +1,7 @@
 
+@extends('master')
+@section("content")
 
-
-<head>
-  <title>E-comm</title>
-  <link rel="shortcut icon" type="image/x-icon" href="https://pngimage.net/wp-content/uploads/2018/06/logo-panier-png-5.png" />
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  
-</head>
-    <body>
 
         <style>
 body{
@@ -21,13 +14,10 @@ body{
     border-radius: 10px;
     padding: 10px;
     margin: 10px;
-    width: 300px;
+    width: 400px;
+    height: 600px;
 }
-#fieldset {
- border-color: orange;
- border-radius: 15px 50px; 
 
-}
 #submit{
     width: 65px;
     height: 40px;
@@ -90,7 +80,7 @@ input[type="text"]{
 
 <div class="form-group">
   <label for="name_ar" style="color:black" ><b>Product Name</b></label><br>
-  <input type="text" class="col-sm-2 col-form-label text-danger"  name="name" value="" maxlength="50" size="30" placeholder="Name"><br>
+  <input type="text"  name="name" value="" maxlength="50" size="30" placeholder="Name"><br>
 </div>      
 
 
@@ -109,7 +99,7 @@ input[type="text"]{
 
 <div class="form-group">
   <label for="photo" style="color:black" ><b>Add Photo</b></label><br>
-  <input type="text" class="col-sm-2 col-form-label text-danger" id="gallery" name="gallery" maxlength="50" size="30" multiple><br>
+  <input type="text"  id="gallery" name="gallery" maxlength="50" size="30" multiple><br>
 </div>
 
   <input type="submit" id="submit" value="save" formmethod="POST" formaction="{{url('admin/insertproduct')}}"><br>
@@ -119,5 +109,5 @@ input[type="text"]{
 </form>
 </div>
 
-    </body>
 
+@endsection

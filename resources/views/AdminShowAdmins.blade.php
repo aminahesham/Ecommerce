@@ -24,11 +24,7 @@ and open the template in the editor.
     <body>
 
   <style>
-    #fr {
-  font-family: Arial, Helvetica, sans-serif;
-  border-collapse: collapse;
-  width: 100%;
-}
+  
 
 #fr td, #fr th {
   border: 1px solid #ddd;
@@ -59,8 +55,7 @@ form{
     width: 300px;
 }
 table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
+  border: 1px solid ;
   padding: 5px;
   margin-top:5px;
 }

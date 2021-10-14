@@ -1,9 +1,9 @@
 @extends('master')
 @section("content")
-<h2 style="text-align:center; color:orange;">welcome to our site</h2>
+<h2 style="text-align:center; color:orange;text-shadow: 2px 2px 4px ;">welcome to E-comm website</h2>
 <div>
     <br>
-<h4 style="margin:8px;">About Our Site</h4>
+<h4 style="margin:8px;font-size:20px;">About Us</h4>
 <br>
 <p style="margin:8px;">
   in our site you will find anything you want ,<br> From each product there are many different types and international brands that suit your taste, 

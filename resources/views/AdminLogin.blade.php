@@ -42,7 +42,9 @@
 <div class="login-form">
     <form action="{{url('admin/login') }}" method="post">
     	{!! csrf_field() !!}
-        <h2 class="text-center" >Admin Log in</h2>
+        <center><img src="https://cdn-icons-png.flaticon.com/512/265/265668.png"style="width:60px;height:60px;" alt=""></center>
+<br>
+        <h3 class="text-center"style="color:black;text-shadow: 2px 2px 4px #000000;" >Admin Log in</h3>
         <br>
         @if(Session::get('success'))
         <div class="alert alert-success alert-dismissible fade show" role="alert">
