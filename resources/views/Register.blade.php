@@ -42,7 +42,7 @@
 <div class="login-form">
     <form action="register" method="post">
     	{!! csrf_field() !!}
-        <center><img src="https://cdn-icons.flaticon.com/png/512/1144/premium/1144709.png?token=exp=1634244270~hmac=9c7cd3515b646e15e4649586663fbe79"style="width:60px;height:60px;" alt=""></center>
+        <center><img src="https://cdn-icons-png.flaticon.com/512/1828/1828506.png"style="width:60px;height:60px;" alt=""></center>
 <br>
         <h3 class="text-center" style="color:black;text-shadow: 2px 2px 4px #000000;">User Register</h3><br>
         @if(\Session::get('success'))
