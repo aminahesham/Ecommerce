@@ -45,6 +45,7 @@ img.slider-img{
     width: 20%;
     
 }
+
 .trending-wrapper{
     margin:30px;
 }

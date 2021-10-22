@@ -1,6 +1,17 @@
 @extends('master')
 @section("content")
-<h2 style="text-align:center;color:orange;text-shadow: 2px 2px 4px #000000;">products </h2>
+
+<style>
+  #link:hover, #link:active {
+  text-decoration: none;
+
+}
+h4{
+  color: #994d00;
+  padding-left:15px;
+}
+</style>
+<h2 style="text-align:center;color:orange;text-shadow: 2px 2px 4px #000000;padding-bottom:20px;">products </h2>
 
 
 <div class="custom-product">
@@ -39,17 +50,17 @@
   </a>
 </div>
 
- <!-- Trending Products -->
+ <!-- Products -->
 <div class="trending-wrapper">
-<h3 style="color:orange;">Trending Products</h3>
+
   @foreach($products as $item)
   <div class="trending-items">
-  <a href="{{ route('product.details', [$item->id]) }}">
+  <a id ="link" href="{{ route('product.details', [$item->id]) }}">
 
       <img class="trending-img" src="{{$item['gallery']}}" >
       <div class="">
-      <h4 style='color:black'>{{$item['name']}}</h4>
-      <h4 style='color:black'>{{$item['price']}}LE</h4>
+      <h4 >{{$item['name']}}</h4><br>
+      <h4 >{{$item['price']}} LE</h4><br>
 
       </div>
       </a>

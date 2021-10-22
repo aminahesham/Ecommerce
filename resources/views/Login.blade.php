@@ -44,7 +44,7 @@
     	{!! csrf_field() !!}
 <center><img src="https://cdn-icons-png.flaticon.com/512/1828/1828506.png"style="width:60px;height:60px;" alt=""></center>
 <br>
-<h3 class="text-center" style="color:black;text-shadow: 2px 2px 4px #000000;">User Log in</h3>
+<h4 class="text-center" style="color:orange;text-shadow: 2px 2px 4px yellow;">Login</h4><br>
 
 <br>
         @if(\Session::get('success'))

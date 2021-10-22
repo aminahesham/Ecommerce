@@ -2,8 +2,6 @@
 
     #di{
         clear:both;
-        border-top-style: solid;
-        border-top-width: thin;
         padding:10px;
         font-size:20px;
     }
