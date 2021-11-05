@@ -21,7 +21,6 @@
 
     @yield('content')
     
-    {{View::make('footer')}}
    
 </body>
 <style>

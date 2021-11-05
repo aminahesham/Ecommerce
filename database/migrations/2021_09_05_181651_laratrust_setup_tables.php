@@ -11,6 +11,7 @@ class LaratrustSetupTables extends Migration
      *
      * @return  void
      */
+    
     public function up()
     {
         // Create table for storing roles

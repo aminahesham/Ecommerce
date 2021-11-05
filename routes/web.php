@@ -1,109 +1,90 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\UserController;
-use App\Http\Controllers\ProductController;
-use App\Http\Controllers\AdminAuthController;
-use App\Http\Controllers\AdminController;
+use App\Http\Controllers\UsersController;
+use App\Http\Controllers\ProductsController;
+use App\Http\Controllers\OrdersController;
+use App\Http\Controllers\CartController;
 
 
-///////////////////////////////////// ADMIN LOGIN  ///////////////////////////////////////////////////////////////
+/*
+|--------------------------------------------------------------------------
+| Web Routes
+|--------------------------------------------------------------------------
+|
+| Here is where you can register web routes for your application. These
+| routes are loaded by the RouteServiceProvider within a group which
+| contains the "web" middleware group. Now create something great!
+|
+*/
 
-Route::get('admin/login'  ,[AdminAuthController::class,'getLogin'])->name('adminLogin');
-
-Route::post('admin/login' ,[AdminAuthController::class,'postLogin'])->name('adminLoginPost');
-
-Route::get('admin/logout' ,[AdminAuthController::class,'Logout'])->name('adminLogout');
-
-
-////////////////////////////////////// ADMIN OPERATIONS ////////////////////////////////////////////////////////
-
-
-Route::group(['prefix' => 'admin','middleware' => 'admin'], function () {
-	// Admin Dashboard
-
-Route::get('dashboard'          , [AdminController::class,'Dashboard'])->name('admindashboard');	
-
-Route::get('showproducts'       , [AdminController::class,'showProducts'])->name('adminshowproducts');
-
-Route::get('showusers'          , [AdminController::class,'showUsers'])->name('adminshowusers');
-
-Route::get('showorders'         , [AdminController::class,'showOrders'])->name('adminshoworders');
-
-Route::get('showadmins'         , [AdminController::class,'showAdmins'])->name('adminshowadmins');
-
-Route::get('addproduct'         , [AdminController::class,'addProduct'])->name('adminaddproduct');
-
-Route::post('insertproduct'     , [AdminController::class,'insertProduct'])->name('admininsertproduct');
-
-Route::get('addadmin'           , [AdminController::class,'addAdmin'])->name('adminaddadmin');
-
-Route::post('insertadmin'       , [AdminController::class,'insertAdmin'])->name('admininsertadmin');
-	
-Route::get('deleteproduct/{id}' , [AdminController::class,'deleteProduct'])->name('admindeleteproduct');
-
-Route::get('deleteadmin/{id}'   , [AdminController::class,'deleteAdmin'])->name('admindeleteadmin');
-
-Route::get('deleteorder/{id}'   , [AdminController::class,'deleteOrder'])->name('admindeleteorder');
-
-Route::get('deleteuser/{id}'    , [AdminController::class,'deleteUser'])->name('admindeleteuser');
-
-Route::get('getproduct/{id}'    , [AdminController::class,'getProduct']);
-
-Route::post('updateproduct/{id}', [AdminController::class,'updateProduct']);
-
-Route::get('getuser/{id}'       , [AdminController::class,'getUser']);
-
-Route::post('updateuser/{id}'   , [AdminController::class,'updateUser']);
-
-
+Route::get('/', function () {
+    return view('welcome');
 });
 
-
-/////////////////////////////////////// USER LOGIN  ////////////////////////////////////////////////////
-
-Route::get('/logout',function(){
-Session :: forget('users');
-return redirect('login');
-});
-
-Route::view('/register'  , 'register');
-
-Route::post('/register'  , [UserController::class,'Register']);
-
-Route::get('/login'      , [UserController::class,'loginView']);
-
-Route::post('/login'     , [UserController::class,'Login']);
-
-Route::get('/home'       , [UserController::class,'homeView']);
+Route::group(['middleware' => 'auth'], function () {
 
 
 
 ////////////////////////////////////////////////// SITE OPERATIONS ///////////////////////////////////////////////////////////////////
 
-Route::group(['middleware' => 'web'], function () {
+Route::get('redirect'         , [UsersController::class,'redirect'])->name('redirect');
+
+Route::get('/home'            , [UsersController::class,'homeView']);
+
+Route::get('useraddproduct'   , [productsController::class,'userAddProduct']);
+
+Route::post('Uinsertproduct'  , [productsController::class,'userInsertProduct']);
 	
-Route::get('products'         , [ProductController::class,'showProducts']);
+Route::get('products'         , [ProductsController::class,'homeShowProducts']);
 
-Route::get('details/{id}'     , [ProductController::class,'productDetails'])->name('product.details');
+Route::get('allproducts'      , [ProductsController::class,'allProducts']);
 
-Route::get('/search'          , [ProductController::class,'Search']);
+Route::get('details/{id}'     , [ProductsController::class,'productDetails'])->name('product.details');
 
-Route::post('/addtocart'      , [ProductController::class,'addToCart']);
+Route::get('/search'          , [ProductsController::class,'Search']);
 
-Route::get('/cartlist'        , [ProductController::class,'cartList']);
+Route::post('/addtocart'      , [CartController::class,'addToCart'])->name('addtocart');
 
-Route::get('/cartdelete/{id}' , [ProductController::class,'cartDelete']);
+Route::get('/cartlist'        , [CartController::class,'cartList']);
 
-Route::get('/confirmorder'    , [ProductController::class,'confirmOrder']);
+Route::get('/cartdelete/{id}' , [CartController::class,'cartDelete']);
 
-Route::post('/saveorder'      , [ProductController::class,'saveOrder']);
+Route::get('/confirmorder'    , [OrdersController::class,'confirmOrder']);
 
-Route::get('/myorders'        , [ProductController::class,'myOrders']);
+Route::post('/saveorder'      , [OrdersController::class,'saveOrder']);
 
-Route::get('useraddproduct'   , [productController::class,'addProduct']);
+Route::get('/myorders'        , [OrdersController::class,'myOrders']);
 
-Route::post('insertproduct'   , [productController::class,'insertProduct']);
+///////////////////////////////////////////////////////////// ADMIN DASHBOARD////////////////////////////////////////////////////////////////
 
+Route::group(['middleware' => 'role:admin'], function () {
+
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->middleware(['auth'])->name('dashboard');
+    
+    
+    Route::get('showusers'          , [UsersController::class,'showUsers'])->name('showusers');
+    Route::get('showorders'         , [OrdersController::class,'showOrders'])->name('showorders');
+    Route::get('showproducts'       , [ProductsController::class,'showProducts'])->name('showproducts');
+    Route::post('insertproduct'     , [ProductsController::class,'insertProduct'])->name('insertproduct');
+    Route::get('addproduct'         , [ProductsController::class,'addproduct'])->name('addproduct');
+    Route::get('deleteproduct/{id}' , [ProductsController::class,'deleteProduct'])->name('admindeleteproduct');
+
+    Route::get('deleteorder/{id}'   , [OrdersController::class,'deleteOrder'])->name('admindeleteorder');
+
+    Route::get('deleteuser/{id}'    , [UsersController::class,'deleteUser'])->name('admindeleteuser');
+    
+    Route::get ('getuser/{id}'      , [UsersController::class,'getUser']);
+    Route::post('updateuser/{id}'   , [UsersController::class,'updateUser']);
+    
+    
+    Route::get('getproduct/{id}'    , [ProductsController::class,'getProduct']);
+    
+    Route::post('updateproduct/{id}', [ProductsController::class,'updateProduct']);
 
 });
+});
+
+require __DIR__.'/auth.php';

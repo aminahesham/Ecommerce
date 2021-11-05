@@ -1,11 +1,6 @@
 
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+@extends('dashboardmaster')
+@section("content")
     <head>
         <meta charset="UTF-8">
         <title>E-comm</title>
@@ -54,10 +49,10 @@ form{
     margin: 8px;
     width: 300px;
 }
-table, th, td {
-  border: 1px solid ;
-  padding: 5px;
-  margin-top:5px;
+table, td, th {  
+  border: 1px solid #ddd;
+  text-align: left;
+  padding:5px;
 }
 
 a{
@@ -85,27 +80,12 @@ a.button{
 }
 
 </style> 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-  <div class="navbar-header">
-      <a class="navbar-brand" href="" style="color:orange;text-shadow: 2px 2px 4px ;">E-comm</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="{{url('admin/showusers')}}">Users Table</a></li>
-      <li><a href="{{url('admin/showorders')}}">Orders Table</a></li>
-      <li><a href="{{url('admin/showproducts')}}">Products Table</a></li>
-      <li><a href="{{url('admin/showadmins')}}">Admins Table</a></li>
-      <li><a href="{{url('admin/dashboard')}}">Dashboard</a></li>
-      <li><a href="{{url('admin/logout')}}"   style="color:orange; float:left;">Logout</a></li>
 
-    </ul>
-  </div>
-</nav>
 
 <h3 style="color:orange;padding:8px;"> Admins Table :</h3> 
 
 
-<a href="{{url('admin/addadmin')}}"  class="btn btn-success" style="background-color:orange; margin:8px; border-radius:25px;">Add New Admin</a>
+<a href="{{url('addadmin')}}"  class="btn btn-success" style="background-color:orange; margin:8px; border-radius:25px;">Add New Admin</a>
 <br><br>
 
 @if(Session::has('productdeleted'))
@@ -143,7 +123,7 @@ a.button{
 
     
     <td>
-    <a href="{{url('admin/deleteadmin/'.$item->id)}}" class="btn btn-warning" style="background-color:orange;">Delete</a>
+    <a href="{{url('deleteadmin/'.$item->id)}}" class="btn btn-warning" style="background-color:orange;">Delete</a>
     </td>
     
 
@@ -153,4 +133,4 @@ a.button{
 </table>
 
     </body>
-</html>
+@endsection

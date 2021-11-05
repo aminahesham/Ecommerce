@@ -21,9 +21,14 @@ class ProductController extends Controller
     }
 
 ////***************************************PRODUCTS**************************************************////
-    public function showProducts(){
+    public function homeShowProducts(){
         $data =Product :: all();
         return view('Product' , ['products' => $data]);
+    }
+
+    public function allProducts(){
+        $data =Product :: all();
+        return view('AllProducts' , ['products' => $data]);
     }
 
     public function productDetails($id){

@@ -6,6 +6,10 @@ use Illuminate\Http\Request;
 use App\Models\User;
 use App\Models\RoleUser;
 use Hash;
+use App\Http\Controllers\Controller;
+use App\Http\Requests\Auth\LoginRequest;
+use App\Providers\RouteServiceProvider;
+use Illuminate\Support\Facades\Auth;
 
 class UserController extends Controller
 {
@@ -18,16 +22,16 @@ class UserController extends Controller
         return view('Home');
     }
     
-
-    public function Login(Request $req){
+    public function Login(Request $request){
         $user=User::where(['email'=> $req -> email])-> first();
-        if(! $user ||Hash::check($req->password,$user->password)){
-            return 'User Name or Password incorrect';
-        }else{
-            $req -> Session() -> put('user', $user);
-            return redirect('/home');
-        }
+
+        $request->authenticate();
+
+        $request->session()->regenerate()->put('user', $user);
+
+        return redirect('/redirect');
     }
+
 
     public function Register(Request $req){
 
@@ -48,5 +52,16 @@ class UserController extends Controller
 
      }
 
+     public function redirect(){
 
+        $role = Auth :: user();
+
+        if($role->hasRole('admin')){
+
+            return view('Dashboard');
+        }
+        else{
+            return view('Home');
+        }
+    }
 }

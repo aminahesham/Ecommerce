@@ -13,19 +13,19 @@ use Hash;
 
 
 class AdminAuthController extends Controller
-{
+{/*
     
     protected $redirectTo = 'admin/login';
 
    
     public function __construct()
     {
-        $this->middleware('admin', ['except' => 'logout']);
+        $this->middleware('guest', ['except' => 'logout']);
     }
 
     public function getLogin()
     {
-        return response()->view('AdminLogin');
+        return response()->view('Login');
     }
 
     public function postLogin(Request $req)
@@ -44,12 +44,11 @@ class AdminAuthController extends Controller
         return $next($req);
 
     }
-
-
     public function Logout()
     {
       auth()->guard('admin')->logout();
       Session :: forget('admins');
       return redirect('admin/login');
     }
+    */
 }

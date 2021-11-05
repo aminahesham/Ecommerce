@@ -11,11 +11,22 @@
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <style>
+
+
+body{
+        background-image: url('https://motionarray.imgix.net/preview-208597-kJX6zt3gCb-high_0002.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-size: 100% 100%;
+    }
 .login-form {
     width: 340px;
     margin: 50px auto;
   	font-size: 15px;
     border-radius: 15px 50px;
+    float:left;
+    margin-left:65px;
 }
 .login-form form {
     margin-bottom: 15px;
@@ -35,6 +46,10 @@
     font-size: 15px;
     font-weight: bold;
     background-color:orange;
+}
+a:hover{
+    text-decoration: none;
+    color:orange;
 }
 </style>
 </head>
@@ -88,8 +103,7 @@
         </div>  
         <br>
             <h6>You haven't an account !</h6>
-            <a href="{{ url('register') }}" style="color:blue;">Register</a><br><br>
-            <a href="{{ url('admin/login') }}" style="color:red;">Admin?</a><br>    
+            <a href="{{ url('register') }}" style="color:black;">Register</a><br><br>
     </form>
     
 </div>

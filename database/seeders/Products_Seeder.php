@@ -17,47 +17,42 @@ class Products_Seeder extends Seeder
         //
         DB::table('products')->insert([
 
-            'name'        => 'S20 ',
-            'price'       => '20000',
-            'category'    => 'devices',
-            'description' => 'samsong s20 ',
-            'gallery'     => 'https://i.gadgets360cdn.com/products/large/moto-g9-650x800-1598251072.jpg',
+            'name'        => 'Samsong A52 ',
+            'price'       => '25000',
+            'description' => 'smart phone ',
+            'photo'       => 'https://m.media-amazon.com/images/I/81afsli5ctL._AC_SL1500_.jpg',
         ]);
 
         DB::table('products')->insert([
 
-            'name'        => 'fitness ',
-            'price'       => '20',
-            'category'    => 'snaks',
-            'description' => 'corn flex',
-            'gallery'     => 'https://i.pinimg.com/originals/ee/29/2e/ee292e9bbe6fc5418dc2cf11b9ccfb51.png',
+            'name'        => 'Samsong S21 ',
+            'price'       => '22000',
+            'description' => 'smart phone',
+            'photo'       => 'http://www.three.co.uk/static/images/device_pages/MobileVersion/Samsung/Galaxy_S21_5G/Phantom_Grey/carousel/1.jpg',
         ]);
 
         DB::table('products')->insert([
 
             'name'        => 'coffee mate',
             'price'       => '15',
-            'category'    => 'drinkes',
             'description' => 'ice coffee',
-            'gallery'     => 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cml-cinnamon-toast-crunch-32oz-cml-funfetti-32oz-001-1574112484.jpg?crop=0.459xw:0.574xh;0.245xw,0.321xh&resize=480:*',
+            'photo'       => 'https://hips.hearstapps.com/hmg-prod.s3.amazonaws.com/images/cml-cinnamon-toast-crunch-32oz-cml-funfetti-32oz-001-1574112484.jpg?crop=0.459xw:0.574xh;0.245xw,0.321xh&resize=480:*',
         ]);
 
         DB::table('products')->insert([
 
-            'name'        => 'nestle',
-            'price'       => '10',
-            'category'    => 'drinkes',
-            'description' => 'cold water',
-            'gallery'     => 'https://sc01.alicdn.com/kf/HTB1cE4gLXXXXXXkXFXXq6xXFXXXK/Plastic-Bottle-Nestle-Pure-Life-Mineral-Water.jpg',
+            'name'        => 'Microsoft Adge',
+            'price'       => '30000',
+            'description' => 'smart laptop',
+            'photo'       => 'https://m.media-amazon.com/images/I/61OvV27-44L._AC_SL1500_.jpg',
         ]);
 
         DB::table('products')->insert([
 
-            'name'        => 'kitkat',
-            'price'       => '30',
-            'category'    => 'snaks',
-            'description' => 'chocolate',
-            'gallery'     => 'https://upload.wikimedia.org/wikipedia/en/thumb/c/c9/KitKat_logo.svg/1200px-KitKat_logo.svg.png',
+            'name'        => 'mac book',
+            'price'       => '30000',
+            'description' => 'apple laptop',
+            'photo'       => 'https://static.acer.com/up/Resource/Acer/Laptops/Swift_3X/Images/20201008/Acer-Swift-3X_SF314-510G_Gold_modelmain.png',
         ]);
     }
 }

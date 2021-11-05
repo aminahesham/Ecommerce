@@ -128,7 +128,7 @@ class AdminController extends Controller
            return redirect()->back();
          
            $products->update($request->all());
-           return redirect('admin/showproducts'); 
+           return redirect('showproducts'); 
              }
        
 
@@ -148,7 +148,7 @@ class AdminController extends Controller
            $user->update($requestData);
            $user->syncRoles($request->roles);
 
-           return redirect('admin/showusers');
+           return redirect('showusers');
 
              }
 

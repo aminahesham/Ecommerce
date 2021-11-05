@@ -1,16 +1,13 @@
-<?php
-use App\Http\Controllers\ProductController;
-use App\Models\User;
 
-$user=DB::table('users');
+<?php
+use App\Http\Controllers\CartController;
 
 $total=0;
 if(Session::has('user')){
-  $total=ProductController::cartitem();
+  $total=CartController::cartitem();
 }
 
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -33,7 +30,8 @@ if(Session::has('user')){
       <li><a href="{{ url('products') }}">Products</a></li>
       <li><a href="{{ url('myorders') }}">My Orders</a></li>
 
-      @if(session('user')->hasRole('seller_user'))
+      
+      @if(Auth::user()->hasRole('seller_user'))
       
       <li><a href="{{ url('useraddproduct') }}">Add Product</a></li>
 
@@ -47,21 +45,16 @@ if(Session::has('user')){
       <button type="submit" class="btn btn-default" style="border-radius:25px;">Search</button>
     </form>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="cartlist" style="color:white;">cart({{$total}})<img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG42.png" margin="2px" height="30px" width="40px"/></a>
-
-      <li class="dropdown">
-        <a class="dropdown-toggle" data-toggle="dropdown"  style="color:orange;">{{Session::get('user')['name']}}
-        <span class=""></span></a>
-        <ul class="dropdown-menu">
+    <li><a href="cartlist" style="color:white;">({{$total}})<img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG42.png" margin="2px" height="30px" width="40px"/></a>
+    <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:orange;">{{Auth :: user()-> name}} <span class=""></span></a>
+        <li><a href="{{route ('logout')}}" style="color:white;">Logout</a></li>
         </ul>
       </li>
-      <li><a href="{{ url('logout') }}" style="color:red;">LogOut</a></li>
     </ul>
   </div>
-  </div>
 </nav>
+  
 
-</div>
 
 </body>
 </html>

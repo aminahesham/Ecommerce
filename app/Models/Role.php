@@ -6,17 +6,16 @@ use Laratrust\Models\LaratrustRole;
 
 class Role extends LaratrustRole
 {
-    //use HasFactory;
+    public $guarded = [];
+ protected $fillable = ["name"];
 
-    protected $fillable = ["name"];
+public $timestamps = false;
 
-    public $timestamps = false;
-
-    /**
-     * The users that belong to the role.
-     */
-    public function users()
-    {
-        return $this->belongsToMany(User::class, 'role_user' );
-    }
+/**
+ * The users that belong to the role.
+ */
+public function users()
+{
+    return $this->belongsToMany(User::class, 'role_user' );
+}
 }

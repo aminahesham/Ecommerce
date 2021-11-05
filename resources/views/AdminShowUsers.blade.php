@@ -6,13 +6,8 @@ use App\Models\Role;
 $roles=Role::all();
 
 ?>
-<!DOCTYPE html>
-<!--
-To change this license header, choose License Headers in Project Properties.
-To change this template file, choose Tools | Templates
-and open the template in the editor.
--->
-<html>
+@extends('dashboardmaster')
+@section("content")
     <head>
         <meta charset="UTF-8">
         <title>E-comm</title>
@@ -37,11 +32,6 @@ and open the template in the editor.
   padding:8px;
 }
 
-#fr td, #fr th {
-  border: 1px solid #ddd;
-  padding: 8px;
-}
-
 #fr tr:nth-child(even){background-color: #f2f2f2;}
 
 #fr tr:hover {background-color: #ddd;}
@@ -64,11 +54,10 @@ form{
     margin: 8px;
     width: 300px;
 }
-table, th, td {
-  border: 1px solid black;
-  border-collapse: collapse;
-  padding: 5px;
-  margin-top:5px;
+table, td, th {  
+  border: 1px solid #ddd;
+  text-align: left;
+  padding:5px;
 }
 #fr{
     color:orange;
@@ -100,22 +89,7 @@ a.button{
 }
 
 </style> 
-<nav class="navbar navbar-default">
-  <div class="container-fluid">
-  <div class="navbar-header">
-      <a class="navbar-brand" href="" style="color:orange;text-shadow: 2px 2px 4px ;">E-comm</a>
-    </div>
-    <ul class="nav navbar-nav">
-      <li><a href="{{url('admin/showusers')}}">Users Table</a></li>
-      <li><a href="{{url('admin/showorders')}}">Orders Table</a></li>
-      <li><a href="{{url('admin/showproducts')}}">Products Table</a></li>
-      <li><a href="{{url('admin/showadmins')}}">Admins Table</a></li>
-      <li><a href="{{url('admin/dashboard')}}">Dashboard</a></li>
-      <li><a href="{{url('admin/logout')}}"   style="color:orange; float:left;">Logout</a></li>
 
-    </ul>
-  </div>
-</nav>
 <h3 style="color:orange; font-family: Arial; margin:2px; padding:4px;"> Users Table :</h3> 
 
 
@@ -161,10 +135,10 @@ a.button{
 
     <td>
 
-    <a href="{{url('admin/getuser/'.$user->id)}}" class="btn btn-warning" style="background-color: #00e64d">Update</a>
+    <a href="{{url('getuser/'.$user->id)}}" class="btn btn-warning" style="background-color: #00e64d">Update</a>
 
 
-    <a href="{{url('admin/deleteuser/'.$user->id)}}" class="btn btn-warning" style="background-color:orange">Delete</a>
+    <a href="{{url('deleteuser/'.$user->id)}}" class="btn btn-warning" style="background-color:orange">Delete</a>
 
 
     </td>
@@ -174,4 +148,4 @@ a.button{
 </table>
 
     </body>
-</html>
+@endsection

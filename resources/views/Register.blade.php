@@ -4,17 +4,28 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <title>E-comm</title>
+<link rel="shortcut icon" type="image/x-icon" href="https://pngimage.net/wp-content/uploads/2018/06/logo-panier-png-5.png" />
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
 <script src="https://code.jquery.com/jquery-3.5.1.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <style>
+
+body{
+        background-image: url('https://motionarray.imgix.net/preview-208597-kJX6zt3gCb-high_0002.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: cover;
+        background-size: 100% 100%;
+    }
 .login-form {
     width: 340px;
     margin: 50px auto;
   	font-size: 15px;
     border-radius:15px 50px 30px 5px;
+    float:left;
+    margin-left:65px;
 }
 .login-form form {
     margin-bottom: 15px;
@@ -35,6 +46,10 @@
     font-size: 15px;
     font-weight: bold;
     background-color:orange;
+}
+a:hover{
+    text-decoration: none;
+    color:orange;
 }
 </style>
 </head>
@@ -93,10 +108,10 @@
         </div>  
         <br>
         <p>already have account ?</p>
-        <a href="{{ url('login') }}" style="color:blue;">Login !!</a><br>    
+        <a href="{{ url('login') }}" style="color:black;">Login !!</a><br>    
 
         <br>
-            <a href="{{ url('admin/login') }}" style="color:red;">Admin ?</a><br>    
+            <a href="{{ url('admin/login') }}" style="color:black;">Admin ?</a><br>    
     </form>
     
 </div>
