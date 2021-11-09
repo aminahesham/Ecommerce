@@ -40,8 +40,6 @@ a:hover {
   color: green;
   text-decoration: none;
 }
-
-
 #fr {
   font-family: Arial, Helvetica, sans-serif;
   border-collapse: collapse;

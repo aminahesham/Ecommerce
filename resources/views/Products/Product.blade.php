@@ -9,7 +9,7 @@ $allproducts = Product::paginate(8);
 
 <style>
 
-  #link:hover, #link:active {
+#link:hover, #link:active {
   text-decoration: none;
 
 }

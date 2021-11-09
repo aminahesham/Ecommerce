@@ -45,7 +45,7 @@ if(Session::has('user')){
       <button type="submit" class="btn btn-default" style="border-radius:25px;">Search</button>
     </form>
     <ul class="nav navbar-nav navbar-right">
-    <li><a href="cartlist" style="color:white;">({{$total}})<img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG42.png" margin="2px" height="30px" width="40px"/></a>
+    <li><a href="cartlist" style="color:white;">{{$total}} <img src="https://pngimg.com/uploads/shopping_cart/shopping_cart_PNG42.png" margin="2px" height="30px" width="40px"/></a>
     <li class="dropdown"><a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color:orange;">{{Auth :: user()-> name}} <span class=""></span></a>
         <li><a href="{{route ('logout')}}" style="color:white;">Logout</a></li>
         </ul>

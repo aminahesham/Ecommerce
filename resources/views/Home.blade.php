@@ -3,16 +3,15 @@
 <style>
 
   body{
-    background-image:url('https://motionarray.imgix.net/preview-208597-kJX6zt3gCb-high_0002.jpg');
+    background-image:url('https://halastore.ly/img/animation.gif');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-size: 100% 100%;
+    background-size: 100% 100% ;
 
   }
   div.transbox {
   margin: 30px;
-  background-color: white;
   color:black;
   width:380px;
   height:300px;
@@ -24,14 +23,11 @@ div.transbox p {
   font-weight: bold;
   color: black;
 }
-#h2{
-  background-color:white;
-  width:500px;
-}
+
 
 </style>
 <div class="container" id="h2">
-<h2 style="text-align:center; color:orange;text-shadow: 2px 2px 4px ;">welcome to E-comm website</h2>
+<h2 style="text-align:center; color:black;text-shadow: 2px 2px 4px ;">welcome to E-comm website</h2>
     <br>
     </div>
     <div class="transbox" >

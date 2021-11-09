@@ -51,7 +51,7 @@ a:hover {
   padding:8px;
 }
 #btn:link, #btn:visited {
-  background-color:  #66d9ff;
+  background-color:  #339966;
   color: black;
   padding: 10px 20px;
   text-align: center;
@@ -61,7 +61,7 @@ a:hover {
 }
 
 #btn:hover, #btn:active {
-  background-color: #0099e6;
+  background-color: #339966;
   color: white;
 }
 #btn-red:link, #btn-red:visited {
@@ -120,7 +120,7 @@ a:hover {
 
 
     <td>
-    <a href="{{url('getproduct/'.$item->id)}}" id="btn" class="btn btn-success">Update</a>
+    <a href="{{url('getproduct/'.$item->id)}}" id="btn" class="btn btn-success"  style="background-color: #79d2a6" >Update</a>
     <a href="{{url('deleteproduct/'.$item->id)}}" id="btn-red"class="btn btn-warning" style="background-color:orange">Delete</a>
     </td>
 @endforeach
