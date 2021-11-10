@@ -37,7 +37,7 @@ a{
     display:inline;
 }
 a:hover {
-  color: blue;
+  color: black;
   background-color: transparent;
   text-decoration: none;
 }
