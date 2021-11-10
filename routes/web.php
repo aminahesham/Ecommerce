@@ -7,21 +7,6 @@ use App\Http\Controllers\OrdersController;
 use App\Http\Controllers\CartController;
 
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
-
-Route::get('/', function () {
-    return view('welcome');
-});
-
 Route::group(['middleware' => 'auth'], function () {
 
 
@@ -30,31 +15,31 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('redirect'         , [UsersController::class,'redirect'])->name('redirect');
 
-Route::get('/home'            , [UsersController::class,'homeView']);
+Route::get('/home'            , [UsersController::class,'homeView'])->name('home');
 
-Route::get('useraddproduct'   , [productsController::class,'userAddProduct']);
+Route::get('useraddproduct'   , [productsController::class,'userAddProduct'])->name('useraddproduct');
 
-Route::post('Uinsertproduct'  , [productsController::class,'userInsertProduct']);
+Route::post('Uinsertproduct'  , [productsController::class,'userInsertProduct'])->name('Uinsertproduct');
 	
-Route::get('products'         , [ProductsController::class,'homeShowProducts']);
+Route::get('products'         , [ProductsController::class,'homeShowProducts'])->name('products');
 
-Route::get('allproducts'      , [ProductsController::class,'allProducts']);
+Route::get('allproducts'      , [ProductsController::class,'allProducts'])->name('allproducts');
 
 Route::get('details/{id}'     , [ProductsController::class,'productDetails'])->name('product.details');
 
-Route::get('/search'          , [ProductsController::class,'Search']);
+Route::get('/search'          , [ProductsController::class,'Search'])->name('search');
 
 Route::post('/addtocart'      , [CartController::class,'addToCart'])->name('addtocart');
 
-Route::get('/cartlist'        , [CartController::class,'cartList']);
+Route::get('/cartlist'        , [CartController::class,'cartList'])->name('cartlist');
 
-Route::get('/cartdelete/{id}' , [CartController::class,'cartDelete']);
+Route::get('/cartdelete/{id}' , [CartController::class,'cartDelete'])->name('cartdelete');
 
-Route::get('/confirmorder'    , [OrdersController::class,'confirmOrder']);
+Route::get('/confirmorder'    , [OrdersController::class,'confirmOrder'])->name('confirmorder');
 
-Route::post('/saveorder'      , [OrdersController::class,'saveOrder']);
+Route::post('/saveorder'      , [OrdersController::class,'saveOrder'])->name('saveorder');
 
-Route::get('/myorders'        , [OrdersController::class,'myOrders']);
+Route::get('/myorders'        , [OrdersController::class,'myOrders'])->name('myorders');
 
 ///////////////////////////////////////////////////////////// ADMIN DASHBOARD////////////////////////////////////////////////////////////////
 
@@ -76,13 +61,13 @@ Route::group(['middleware' => 'role:admin'], function () {
 
     Route::get('deleteuser/{id}'    , [UsersController::class,'deleteUser'])->name('admindeleteuser');
     
-    Route::get ('getuser/{id}'      , [UsersController::class,'getUser']);
-    Route::post('updateuser/{id}'   , [UsersController::class,'updateUser']);
+    Route::get ('getuser/{id}'      , [UsersController::class,'getUser'])->name('admingetuser');
+    Route::post('updateuser/{id}'   , [UsersController::class,'updateUser'])->name('adminupdateuser');
     
     
-    Route::get('getproduct/{id}'    , [ProductsController::class,'getProduct']);
+    Route::get('getproduct/{id}'    , [ProductsController::class,'getProduct'])->name('admingetproduct');
     
-    Route::post('updateproduct/{id}', [ProductsController::class,'updateProduct']);
+    Route::post('updateproduct/{id}', [ProductsController::class,'updateProduct'])->name('adminupdateproduct');
 
 });
 });
