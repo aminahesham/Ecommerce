@@ -3,12 +3,11 @@
 <style>
 
   body{
-    background-image:url('https://halastore.ly/img/animation.gif');
+    background-image:url('https://cdn.crello.com/api/media/medium/296406986/stock-photo-top-view-shopping-cart-presents');
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-size: cover;
-    background-size: 100% 100% ;
-
+    background-position: center;
   }
   div.transbox {
   margin: 30px;
@@ -32,9 +31,9 @@ div.transbox p {
     </div>
     <div class="transbox" >
 
-<h4 style="margin:8px;font-size:20px;color:orange;text-shadow: 2px 2px 4px ;">About Us</h4>
+<h4 style="margin:8px;font-size:20px;color:black;text-shadow: 2px 2px 4px ;">About Us</h4>
 <br>
-<p style="margin:8px;width:300px;">
+<p style="margin:10px;width:400px;">
   in our site you will find anything you want ,<br> From each product there are many different types and international brands that suit your taste, 
   which will make your experience better and you will enjoy staying on the site more.
 

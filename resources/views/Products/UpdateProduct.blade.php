@@ -13,7 +13,7 @@ background-color:white;
     border-radius: 15px;
     color: white;
     font-weight:bold;
-    background-color: #04AA6D;
+    background-color: orange;
     font-size: 14px;
     border: none;
 }  
@@ -26,6 +26,8 @@ background-color:white;
 #form{
     border: 1px solid black;
     width:400px;
+    background-color: #04AA6D;
+    border-radius:20px;
 
 }
 
@@ -53,31 +55,31 @@ background-color:white;
 <form id="form" method="POST" action="{{URL('/getproduct'. $products->id )}}" enctype="multipart/form-data">
 @csrf
 <fieldset>
-<h3 style="color:white; text-align: center;">Update Product</h3>
+<h3 style="color:white; text-align: center;font-size:20px;">Update Product</h3><br>
 
 
 <div class="form-group">
   <label for="name_ar" style="color:black" ><b>Product Name</b></label><br>
-  <input type="text" class=""  name="name" value="{{$products->name}}" maxlength="50" size="30" placeholder="Name"><br>
+  <input type="text" class=""  name="name" value="{{$products->name}}" maxlength="50" size="30" placeholder="Name" style="border-radius:10px;"><br><br>
 </div>      
 
 
 
 <div class="form-group">
   <label for="price" style="color:black"><b>Product Price</b></label><br>
-  <input type="text" id="price" name="price" value="{{$products->price}}" maxlength="50" size="30" placeholder="Price"><br>
+  <input type="text" id="price" name="price" value="{{$products->price}}" maxlength="50" size="30" placeholder="Price" style="border-radius:10px;"><br><br>
 </div>
 
 
 <div class="form-group">
   <label for="details_en" style="color:black"><b>Description</b></label><br>
-  <input type="text" id="description" name="description" value="{{$products->description}}" maxlength="50" size="30" placeholder="Description"><br>
+  <input type="text" id="description" name="description" value="{{$products->description}}" maxlength="50" size="30" placeholder="Description" style="border-radius:10px;"><br><br>
 </div>
 
 
 <div class="form-group">
   <label for="photo" style="color:black" ><b>Add Photo</b></label><br>
-  <input type="text" class="" id="gallery" name="gallery" value="{{$products->photo}}" maxlength="50" size="30" multiple><br>
+  <input type="text" class="" id="gallery" name="gallery" value="{{$products->photo}}" maxlength="50" size="30" multiple style="border-radius:10px;"><br><br>
 </div>
 
   <input type="submit" id="submit" value="save" formmethod="POST" formaction="{{URL('updateproduct', $products->id )}}"><br>

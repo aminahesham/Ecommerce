@@ -13,7 +13,7 @@ background-color:white;
     border-radius: 15px;
     color: white;
     font-weight:bold;
-    background-color: #04AA6D;
+    background-color: orange;
     font-size: 14px;
     border: none;
 }  
@@ -23,9 +23,13 @@ background-color:white;
     border-radius: 15px;
     cursor: pointer;  
 }
+
 #form{
     border: 1px solid black;
     width:400px;
+    background-color: #04AA6D;
+    border-radius: 15px;
+
 
 }
 
@@ -53,46 +57,35 @@ background-color:white;
 <form id="form" method="POST" action="{{URL('getuser'. $users->id )}}" enctype="multipart/form-data">
 @csrf
 <fieldset>
-<h3 style="color:white; text-align: center;">Update User</h3>
+<h3 style="color:white; text-align: center;font-size:20px;">Update User</h3>
 
 <div class="form-group">
   <label for="id" style="color:black;font-size:20px" ><b> Id :</b></label><br>
-  <input type="text" class=""  name="id" value="{{$users->id}}" maxlength="50" size="30" placeholder=""><br>
+  <input type="text" class=""  name="id" value="{{$users->id}}" maxlength="50" size="30" placeholder=""style="border-radius:10px;"><br><br>
 </div>
 
 
 <div class="form-group">
   <label for="name" style="color:black;font-size:20px" ><b> Name :</b></label><br>
-  <input type="text" class=""  name="name" value="{{$users->name}}" maxlength="50" size="30" placeholder=""><br>
+  <input type="text" class=""  name="name" value="{{$users->name}}" maxlength="50" size="30" placeholder=""style="border-radius:10px;"><br><br>
 </div>      
 
 <br>
 
 <div class="form-group">
   <label for="email" style="color:black;font-size:20px"><b> Email :</b></label><br>
-  <input type="email" class="" name="email" value="{{$users->email}}" maxlength="50" size="30" placeholder=""><br><br>
+  <input type="email" class="" name="email" value="{{$users->email}}" maxlength="50" size="30" placeholder="" style="border-radius:10px;"><br><br>
 </div>
-
-<br>
-<div class="">
-<label for="role" style="color:black;font-size:20px"><b> Role :</b></label><br>
+<div class="container">
+<label for="role" style="color:black;font-size:20px"><b> Role :</b></label><br><br>
 
 
 
-
-<label for="normal_user"  class="container">
-<input type="checkbox" id="normal_user" name="roles[]" value="normal_user" {{$users->hasRole('normal_user')? 'checked' : ''}}>Normal User
-</label><br>
-
-
-<label for="seller_user" class="container">
-<input type="checkbox" id="seller_user" name="roles[]" value="seller_user" {{$users->hasRole('seller_user')? 'checked' : ''}}>Seller User
-</label><br>
-
-<label for="seller_user" class="container">
-<input type="checkbox" id="admin" name="roles[]" value="admin" {{$users->hasRole('admin')? 'checked' : ''}}>Admin
-</label><br>
-
+<select name="roles[]" id="roles" style="background-color:#ff9900;color:white;border-radius: 15px;">
+    <option value="admin" {{$users->hasRole('admin')? 'selected' : ''}}>Admin</option>
+    <option value="seller_user" {{$users->hasRole('seller_user')? 'selected' : ''}}>Seller User</option>
+    <option value="normal_user" {{$users->hasRole('normal_user')? 'selected' : ''}}>Normal User</option>
+    </select><br><br>
 </div>
 
 

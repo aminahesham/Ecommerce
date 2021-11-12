@@ -66,7 +66,6 @@ Route::group(['middleware' => 'role:admin'], function () {
     
     
     Route::get('getproduct/{id}'    , [ProductsController::class,'getProduct'])->name('admingetproduct');
-    
     Route::post('updateproduct/{id}', [ProductsController::class,'updateProduct'])->name('adminupdateproduct');
 
 });
