@@ -15,15 +15,17 @@
                     <x-nav-link :href="route('dashboard')" :active="request()->routeIs('dashboard')">
                         {{ __('Dashboard') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('showusers')" :active="request()->routeIs('poststable')">
+                    @if(Auth::user()->hasPermission('manage-users'))
+                    <x-nav-link :href="route('showusers')" :active="request()->routeIs('showusers')">
                         {{ __('Users Table') }}
                     </x-nav-link>
+                    @endif
 
-                    <x-nav-link :href="route('showorders')" :active="request()->routeIs('showdramas')">
+                    <x-nav-link :href="route('showorders')" :active="request()->routeIs('showorders')">
                         {{ __('Orders Table') }}
                     </x-nav-link>
 
-                    <x-nav-link :href="route('showproducts')" :active="request()->routeIs('showmovies')">
+                    <x-nav-link :href="route('showproducts')" :active="request()->routeIs('showproducts')">
                         {{ __('Products Table') }}
                     </x-nav-link>
                 </div>

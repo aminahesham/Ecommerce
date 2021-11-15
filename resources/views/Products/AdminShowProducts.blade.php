@@ -86,7 +86,9 @@ a:hover {
         <h2 class="font-semibold text-xl text-gray-800 leading-tight">
             {{ __('Products List :') }}
         </h2>
+        @if(Auth::user()->hasPermission('add-product'))
         <a href="{{url('addproduct')}}" class="btn btn-info" role="button">Add New Product</a>
+        @endif
 
     </x-slot>
 
@@ -120,7 +122,9 @@ a:hover {
 
 
     <td>
+    @if(Auth::user()->hasPermission('update-products'))
     <a href="{{url('getproduct/'.$item->id)}}" id="btn" class="btn btn-success"  style="background-color: #79d2a6" >Update</a>
+    @endif
     <a href="{{url('deleteproduct/'.$item->id)}}" id="btn-red"class="btn btn-warning" style="background-color:orange">Delete</a>
     </td>
 @endforeach

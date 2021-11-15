@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\Permission;
+
 use Illuminate\Support\Facades\Auth;
 
 
@@ -36,6 +38,8 @@ class UsersController extends Controller
         $requestData = $request->except('email' , 'name');
         $user->update($requestData);
         $user->syncRoles($request->roles);
+        $user->syncPermissions($request->permissions);
+
 
         return redirect('showusers');
 

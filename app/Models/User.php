@@ -47,9 +47,12 @@ class User extends Authenticatable
     public function roles()
     {
         return $this->belongsToMany(Role::class, 'role_user');
-        // "role_user" is table name
-        // OR if we have model RoleUser, then we can use class
-        // instead of table name role_user
-        //return $this->belongsToMany(Role::class, RoleUser::class);
+       
+    }
+
+    public function permissions()
+    {
+        return $this->belongsToMany(Permission::class, 'permission_user');
+        
     }
 }
