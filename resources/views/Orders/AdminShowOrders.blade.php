@@ -95,8 +95,8 @@ a:hover {
 
 <tr id="fr">
   <th scope="col">ID</th>
-  <th scope="col">Product id</th>
-  <th scope="col">User id</th>
+  <th scope="col">Product Name</th>
+  <th scope="col">User Name</th>
   <th scope="col">Payment Method</th>
   <th scope="col">Address</th>
   <th scope="col">Phone</th>

@@ -12,18 +12,17 @@ use Illuminate\Support\Facades\DB;
 
 class OrdersController extends Controller
 {
+
 //show order table in dashboard
-    public function showOrders(){
-        $orders=Order::all();
-        return view('Orders/AdminShowOrders',compact('orders'));
+public function showOrders(){
+    $orders=Order::all();
+    return view('Orders/AdminShowOrders',compact('orders'));
     }
-
-    
+  
 //delete order from database 
-    public function deleteOrder($id){
-
+public function deleteOrder($id){
     Order::destroy($id);
-     return redirect()->back();
+    return redirect()->back();
 }
 
 //user confirm order
@@ -35,7 +34,6 @@ public function confirmOrder(){
     ->sum('products.price');
 
     return view('Orders/ConfirmOrders' , ['total' => $total]);
-
 }
 
 //user show all his confirmed orders
@@ -65,10 +63,8 @@ public function saveOrder(Request $req){
 
         Cart::where('user_id' , $userid)->delete();
     }
-    
     $req -> input();
     return redirect('/home');
-
 }
   
 }

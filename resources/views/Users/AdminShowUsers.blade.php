@@ -99,6 +99,7 @@ a:hover {
   <th scope="col">E-mail</th>
   <th scope="col">Roles</th>
   <th scope="col">Role Description</th>
+  <th scope="col">Permissions</th>
   <th scope="col">Edit</th>
 </tr>
 
@@ -107,17 +108,21 @@ a:hover {
   <th scope="row">{{$user->id}}</th>
     <td>{{$user -> name}}</td>
     <td>{{$user -> email}}</td>
-    <td>
+    <td style="color:blue;">
       @foreach($user->roles as $role)
-      {{ $role ->display_name }}
+      {{ $role ->display_name }} -
      @endforeach
     </td>
-    <td>
+    <td style="width:250px;">
       @foreach($user->roles as $role)
-      {{ $role ->description }}
+      {{ $role ->description }} 
      @endforeach
     </td>
-    
+    <td style="width:280px;color:blue;">
+      @foreach($user->permissions as $permission)
+      {{ $permission ->display_name }} /
+     @endforeach
+    </td>
 
     <td>
     @if(Auth::user()->hasPermission('update-user'))

@@ -12,7 +12,7 @@ use Session;
 
 class CartController extends Controller
 {
-    //
+// add products to cart
     public function addToCart(Request $req){
         if ($req -> Session()->has('user')){
             $cart = new Cart;
@@ -26,11 +26,13 @@ class CartController extends Controller
         
     }
 
+// display the number of cart items 
     static function cartItem(){
         $userid =Session()->get('user')['id'];
         return Cart::where('user_id' , $userid)-> count();
     }
 
+// display products in cart     
     public function cartList(){
         $userid = Session::get('user')['id'];
         $products = DB::table('cart')
@@ -41,8 +43,8 @@ class CartController extends Controller
         return view('Products/CartList' , ['products' => $products]);
     }
 
+// delete product from cart    
     public function cartDelete($id){
-
        Cart::destroy($id);
         return redirect('cartlist');
     }

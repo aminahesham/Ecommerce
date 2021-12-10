@@ -46,7 +46,7 @@ class RegisteredUserController extends Controller
             'password' => Hash::make($request->password),
         ]);
         RoleUser::create([
-            'role_id'  => 2,
+            'role_id'  => 1,
             'user_id'  => $user -> id,
             'user_type'=> 'user',
               

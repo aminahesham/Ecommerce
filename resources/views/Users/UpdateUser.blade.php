@@ -1,10 +1,6 @@
 <?php
-use Database\Seeders\Permissions_Seeder;
-use Illuminate\Database\Seeder;
 use  App\Models\Permission;
 $permissions=Permission::all();
-
-
 ?>
 
 <style>
@@ -36,8 +32,6 @@ background-color:white;
     width:400px;
     background-color: #04AA6D;
     border-radius: 15px;
-
-
 }
 
 </style> 
@@ -86,37 +80,31 @@ background-color:white;
 <div class="container">
 <label for="role" style="color:black;font-size:20px"><b> Role :</b></label><br><br>
 
-<select name="roles[]" id="roles" style="background-color:#ff9900;color:white;border-radius: 15px;">
-    <option value="admin" {{$users->hasRole('admin')? 'selected' : ''}}>Admin</option>
-    <option value="seller_user" {{$users->hasRole('seller_user')? 'selected' : ''}}>Seller User</option>
-    <option value="normal_user" {{$users->hasRole('normal_user')? 'selected' : ''}}>Normal User</option>
-    </select><br><br>
+<label><input type="checkbox"   name="roles[]" value="{{'admin'}}"{!! $users->hasRole('admin') ? 'checked' : '' !!} > Admin</label><br>
+<label><input type="checkbox"   name="roles[]" value="{{'seller_user'}}"{!! $users->hasRole('seller_user') ? 'checked' : '' !!} > Seller User</label><br>
+<label><input type="checkbox"   name="roles[]" value="{{'normal_user'}}"{!! $users->hasRole('normal_user') ? 'checked' : '' !!} > Normal User</label><br>
 </div>
 
-<div class="container">
+<div class="container" >
 
 <label  style="color:black;font-size:20px"><b> Permissions :</b></label><br><br>
 
-<label><input type="checkbox"   name="permissions[]" value="{{'add-product'}}"{!! $users->assigned ? 'checked' : '' !!} > add product</label><br>
+<label><input type="checkbox"   name="permissions[]" value="{{'add-product'}}"{!! $users->hasPermission('add-product') ? 'checked' : '' !!} > add product</label><br>
 
 
 
-<label><input type="checkbox"   name="permissions[]" value="{{'update-products'}}" {!! $users->assigned ? 'checked' : '' !!}> update products</label><br>
+<label><input type="checkbox"   name="permissions[]" value="{{'update-products'}}" {!! $users->hasPermission('update-products') ? 'checked' : '' !!}> update products</label><br>
 
 
 
-<label><input type="checkbox"  name="permissions[]" value="{{'add-user'}}"  {!! $users->assigned ? 'checked' : '' !!}> add user</label><br>
+<label><input type="checkbox"   name="permissions[]" value="{{'update-user'}}" {!! $users->hasPermission('update-user') ? 'checked' : '' !!}> update user</label><br>
 
 
 
-<label><input type="checkbox"   name="permissions[]" value="{{'update-user'}}" {!! $users->assigned ? 'checked' : '' !!}> update user</label><br>
-
-
-
-<label><input type="checkbox"  name="permissions[]" value="{{'manage-users'}}" {!! $users->assigned ? 'checked' : '' !!}> manage users</label><br>
+<label><input type="checkbox"  name="permissions[]" value="{{'manage-users'}}" {!! $users->hasPermission('manage-users') ? 'checked' : '' !!}> manage users</label><br>
 </div>
 
-<input type="submit" id="submit" value="save" formmethod="POST" formaction="{{URL('updateuser', $users->id )}}"><br>
+<input type="submit" id="submit" value="save" formmethod="POST" formaction="{{URL('updateuser', $users->id )}}"><br><br>
 
 
 </fieldset>

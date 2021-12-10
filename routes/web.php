@@ -15,11 +15,9 @@ Route::group(['middleware' => 'auth'], function () {
 
 Route::get('redirect'         , [UsersController::class,'redirect'])->name('redirect');
 
-Route::get('/home'            , [UsersController::class,'homeView'])->name('home');
-
 Route::get('useraddproduct'   , [productsController::class,'userAddProduct'])->name('useraddproduct');
 
-Route::post('Uinsertproduct'  , [productsController::class,'userInsertProduct'])->name('Uinsertproduct');
+Route::post('Uinsertproduct'  , [productsController::class,'insertProduct'])->name('Uinsertproduct');
 	
 Route::get('products'         , [ProductsController::class,'homeShowProducts'])->name('products');
 
@@ -41,7 +39,11 @@ Route::post('/saveorder'      , [OrdersController::class,'saveOrder'])->name('sa
 
 Route::get('/myorders'        , [OrdersController::class,'myOrders'])->name('myorders');
 
-///////////////////////////////////////////////////////////// ADMIN DASHBOARD////////////////////////////////////////////////////////////////
+Route::get('/home', function () {
+    return view('Home');
+})->name('home');
+
+///////////////////////////////////////////////////////////// ADMIN DASHBOARD ////////////////////////////////////////////////////////////////
 
 Route::group(['middleware' => 'role:admin'], function () {
 
@@ -50,24 +52,21 @@ Route::group(['middleware' => 'role:admin'], function () {
     })->middleware(['auth'])->name('dashboard');
     
     
-    Route::get('showusers'          , [UsersController::class,'showUsers'])->name('showusers');
-    Route::get('showorders'         , [OrdersController::class,'showOrders'])->name('showorders');
     Route::get('showproducts'       , [ProductsController::class,'showProducts'])->name('showproducts');
     Route::post('insertproduct'     , [ProductsController::class,'insertProduct'])->name('insertproduct');
     Route::get('addproduct'         , [ProductsController::class,'addproduct'])->name('addproduct');
     Route::get('deleteproduct/{id}' , [ProductsController::class,'deleteProduct'])->name('admindeleteproduct');
-
-    Route::get('deleteorder/{id}'   , [OrdersController::class,'deleteOrder'])->name('admindeleteorder');
-
-    Route::get('deleteuser/{id}'    , [UsersController::class,'deleteUser'])->name('admindeleteuser');
-    
-    Route::get ('getuser/{id}'      , [UsersController::class,'getUser'])->name('admingetuser');
-    Route::post('updateuser/{id}'   , [UsersController::class,'updateUser'])->name('adminupdateuser');
-    
-    
     Route::get('getproduct/{id}'    , [ProductsController::class,'getProduct'])->name('admingetproduct');
     Route::post('updateproduct/{id}', [ProductsController::class,'updateProduct'])->name('adminupdateproduct');
 
+    Route::get('showorders'         , [OrdersController::class,'showOrders'])->name('showorders');
+    Route::get('deleteorder/{id}'   , [OrdersController::class,'deleteOrder'])->name('admindeleteorder');
+
+    Route::get('showusers'          , [UsersController::class,'showUsers'])->name('showusers');
+    Route::get('deleteuser/{id}'    , [UsersController::class,'deleteUser'])->name('admindeleteuser');
+    Route::get ('getuser/{id}'      , [UsersController::class,'getUser'])->name('admingetuser');
+    Route::post('updateuser/{id}'   , [UsersController::class,'updateUser'])->name('adminupdateuser');
+    
 });
 });
 

@@ -12,16 +12,12 @@ use Illuminate\Support\Facades\Auth;
 
 class UsersController extends Controller
 {
-    //
-    public function homeView(){
-        return view('Home');
-    }
+
 //show users table in dashboard
     public function showUsers(){
        
         $users=User::all();
         return view('Users/AdminShowUsers',compact('users'));
-
     }
 
 //get user to update it     
@@ -40,22 +36,18 @@ class UsersController extends Controller
         $user->syncRoles($request->roles);
         $user->syncPermissions($request->permissions);
 
-
         return redirect('showusers');
-
-          }
+        }
 
 //redirect users and admins by roles
     public function redirect(){
 
-            $role = Auth :: user();
-    
-            if($role->hasRole('admin')){
-    
-                return view('dashboard');
+        $role = Auth :: user();
+        if($role->hasRole('admin')){
+            return view('dashboard');
             }
-            else{
-                return view('home');
+        else{
+            return view('home');
             }
         }
     
@@ -66,21 +58,7 @@ class UsersController extends Controller
          return redirect()->back();
     }
     
-//seller user add product to database   
-    public function addProduct(){
-        
-        return view('Products/UserAddProduct');
-    }
 
-    public function insertProduct(Request $requ){
-      
-         Product::create([
-        'name'         => $requ -> name,
-        'price'        => $requ -> price,
-        'description'  => $requ -> description,
-        'photo'        => $requ -> gallery,
 
-         ]);
-         return redirect()->back();
-        }
+
 }

@@ -6,8 +6,9 @@ use Laratrust\Models\LaratrustRole;
 
 class Role extends LaratrustRole
 {
-    public $guarded = [];
- protected $fillable = ["name"];
+ public $guarded = [];
+
+ protected $table='roles';
 
 public $timestamps = false;
 
