@@ -55,7 +55,7 @@ public function saveOrder(Request $req){
     foreach($allorders as $cart){
         $order = new Order;
         $order -> product_id = $cart['product_id'];
-        $order -> user_id = $cart['user_id'];
+        $order -> user_id   = $cart['user_id'];
         $order -> payment_method = $req -> payment;
         $order -> address = $req -> address;
         $order -> phone = $req -> phone;

@@ -112,7 +112,7 @@ a:hover {
   <tr>
   <th scope="row">{{$item->id}}</th>
     <td>{{$item -> product_id}}</td>
-    <td>{{$item -> user_id}}</td>
+    <td>{{$item -> user_name}}</td>
     <td>{{$item -> payment_method}}</td>
     <td>{{$item -> address}}</td>
     <td>{{$item -> phone}}</td>

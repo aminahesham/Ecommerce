@@ -27,5 +27,12 @@ class Role_Seeder extends Seeder
             'display_name' => 'seller user',
             'description'  => 'can buy , make orders and add products',
         ]);
+
+        DB::table('roles')->insert([
+            'name'         => 'admin',
+            'display_name' => 'admin',
+            'description'  => 'acsses the dashboard',
+        ]);
     }
 }
+

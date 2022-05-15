@@ -128,7 +128,6 @@ a:hover {
     @if(Auth::user()->hasPermission('update-user'))
     <a href="{{url('getuser/'.$user->id)}}" class="btn btn-warning" id="btn" style="background-color: #79d2a6">Update</a>
     @endif
-
     <a href="{{url('deleteuser/'.$user->id)}}" class="btn btn-warning" id="btn-red" style="background-color:orange">Delete</a>
 
 
